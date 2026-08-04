@@ -1,0 +1,62 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Verify Kern
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+      - name: Install Rokit
+        uses: CompeyDev/setup-rokit@v0.1.2
+      - name: Install pinned tools
+        run: rokit install --no-trust-check
+      - name: Confirm managed toolchain
+        run: |
+          rokit list
+          lute --version
+      - name: Regenerate committed artifacts
+        run: |
+          lute run scripts/generate_modules.luau
+          lute run scripts/generate_types.luau
+          lute run scripts/generate_docs.luau
+          git diff --exit-code -- src/cli/gen/modules.luau src/cli/gen/types.luau docs/api
+      - name: Type-check public entry points
+        run: |
+          lute check src/cli/run.luau
+          lute check types/kern/init.luau
+          lute check tests/run.luau
+      - name: Run the test suite
+        run: lute run scripts/test.luau
+      - name: Compile Kern
+        run: lute run scripts/cd.luau
+      - name: Dogfood Kern against its own repository
+        run: |
+          bin/build check
+          bin/build build
+      - name: Validate a real Kern project
+        working-directory: sandbox
+        run: |
+          ../bin/build check
+          ../bin/build build
+      - name: Upload the Linux binary
+        uses: actions/upload-artifact@v4
+        with:
+          name: kern-linux-x86_64
+          path: bin/build
+          if-no-files-found: error
