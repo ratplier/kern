@@ -1,0 +1,45 @@
+--!strict
+
+const kern = require("@kern")
+const quote = require("@kern/syntax/quote")
+const test_types = require("../test")
+
+return function(test: test_types.Test)
+	test.describe("syntax quoting and queries", function()
+		test.it("quotes statements, expressions, and blocks", function()
+			const statement = kern.quote("local answer = 40")
+			const expression = kern.quote_expression("logger.info")
+			const block = kern.quote_block("local a = 1\nlocal b = 2")
+			test.assert_eq((statement :: any).tag, "local")
+			test.assert_eq((expression :: any).tag, "indexname")
+			test.assert_eq(#block.statements, 2)
+			test.assert_eq(quote.source(statement), "local answer = 40")
+		end)
+
+		test.it("rejects invalid and empty quoted source", function()
+			test.assert_error(function()
+				kern.quote("")
+			end, "cannot quote empty")
+			test.assert_error(function()
+				kern.quote_expression("local broken")
+			end, "could not quote Luau expression")
+		end)
+
+		test.it("normalizes global, member, and method calls", function()
+			const parsed = kern.parse([[print("ready")
+logger.info("loaded")
+service:Start()]])
+			if not parsed.ok then
+				error(parsed.error.message)
+			end
+			const calls = kern.calls.any:collect(parsed.tree.root)
+			test.assert_eq(#calls, 3)
+			test.assert_eq(calls[1].callee, "print")
+			test.assert(calls[1].is_global)
+			test.assert(calls[1].callee_node ~= nil)
+			test.assert_eq(#kern.calls.global("print"):collect(parsed.tree.root), 1)
+			test.assert_eq(#kern.calls.method("Start"):collect(parsed.tree.root), 1)
+			test.assert_eq(#kern.calls.member("info"):collect(parsed.tree.root), 1)
+		end)
+	end)
+end
