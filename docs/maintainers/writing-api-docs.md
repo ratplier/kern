@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Writing API docs
 
-Kern compiles public typedef comments into [`api.json`](../api/api.json), then
+kern compiles public typedef comments into [`api.json`](../api/api.json), then
 renders that data as Docusaurus-compatible Markdown. Use a `--[=[ ... ]=]`
 comment immediately before an exported type, function, or assigned API value.
 

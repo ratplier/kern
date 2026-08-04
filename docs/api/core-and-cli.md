@@ -5,7 +5,7 @@ title: Core and CLI
 
 <!-- Generated from api.json by scripts/render_api_docs.luau. Do not edit directly. -->
 
-CLI helpers and the result, graph, and error primitives behind Kern.
+CLI helpers and the result, graph, and error primitives behind kern.
 
 ## API
 
@@ -29,7 +29,7 @@ Returns the process exit code for a command result.
 function cli.parse(values: { string }): ParseResult
 ```
 
-Parses Kern command arguments without running a project.
+Parses kern command arguments without running a project.
 
 **Parameters**
 
@@ -57,7 +57,7 @@ Formats a command result for terminal output.
 function cli.run(project: Project.Project, values: Arguments): RunResult
 ```
 
-Runs a parsed command against a Kern project.
+Runs a parsed command against a kern project.
 
 **Parameters**
 
@@ -109,4 +109,3 @@ export type Result<Value, Failure> = Ok<Value> | Err<Failure>
 ```
 
 A result that must be narrowed through its `ok` field.
-

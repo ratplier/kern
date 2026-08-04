@@ -45,7 +45,7 @@ const function render()
 		"",
 		"<!-- Generated from api.json by scripts/render_api_docs.luau. Do not edit directly. -->",
 		"",
-		"Kern's public API, compiled from `--[=[ ... ]=]` documentation comments in [`types/kern`](../../types/kern).",
+		"kern's public API, compiled from `--[=[ ... ]=]` documentation comments in [`types/kern`](../../types/kern).",
 		"",
 		"## Sections",
 		"",

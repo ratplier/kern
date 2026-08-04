@@ -1,6 +1,6 @@
 # kern game-project sandbox
 
-This is a small client/server/shared game layout that demonstrates how Kern fits
+This is a small client/server/shared game layout that demonstrates how kern fits
 into a Rojo-style repository.
 
 ```text

@@ -1,10 +1,10 @@
-# Kern
+# kern
 
 > [!WARNING]
-> Kern's implementation, tests, documentation, and automation were produced by
+> kern's implementation, tests, documentation, and automation were produced by
 > Codex. Project direction and planning remain the maintainer's work.
 
-Kern is a pure-Luau project tool for linting, AST-based transforms, require
+kern is a pure-Luau project tool for linting, AST-based transforms, require
 rewriting, and deterministic build output. It is designed for game repositories:
 the project configuration is Luau, the executable is a platform-specific binary,
 and output selection can preserve scripts and non-Luau assets for Rojo workflows.
@@ -17,7 +17,7 @@ task-oriented guides.
 
 ## Toolchain
 
-Kern pins its development toolchain in [`rokit.toml`](rokit.toml). Install
+kern pins its development toolchain in [`rokit.toml`](rokit.toml). Install
 [Rokit](https://github.com/rojo-rbx/rokit), then run this once after cloning or
 when `rokit.toml` changes:
 
@@ -28,9 +28,9 @@ rokit install
 This installs the pinned `lute` executable used by every script below. Do not
 rely on an arbitrary global Lute version.
 
-## Install Kern with Rokit
+## Install kern with Rokit
 
-Once a tagged release exists under `ratplier/kern`, add Kern to a consumer
+Once a tagged release exists under `ratplier/kern`, add kern to a consumer
 project's `rokit.toml`:
 
 ```toml
@@ -71,9 +71,9 @@ kern build
 Run `kern setup` after replacing the executable if an existing repository needs
 its editor typedefs refreshed. Normal project commands never modify `~/.kern`.
 
-## Test Kern
+## Test kern
 
-Kern's test suite uses the bundled describe/it assertion framework and runs
+kern's test suite uses the bundled describe/it assertion framework and runs
 entirely against in-memory project fixtures:
 
 ```text
@@ -143,10 +143,10 @@ without changing the build directory. Run `kern build` only when the check is
 clean. A failing custom rule is reported as a `rule_error`; no edits from that
 failing transform are applied.
 
-## Kern checks Kern
+## kern checks kern
 
 This repository has its own [`default.kern.luau`](default.kern.luau) project.
-It recursively analyzes Kern's source, scripts, tests, typedefs, sandbox, and
+It recursively analyzes kern's source, scripts, tests, typedefs, sandbox, and
 tooling components; `kern check` validates the complete self-project without
 writing files. `kern build` collects only derived artifacts—the embedded module
 and typedef bundles plus generated API JSON and Markdown—into ignored
@@ -154,5 +154,5 @@ and typedef bundles plus generated API JSON and Markdown—into ignored
 configuration.
 
 The self-project uses an import-free core entrypoint, so self-packaging does not
-need alias rewriting or Lute's host-only `@std` modules. Kern's compiled binary
+need alias rewriting or Lute's host-only `@std` modules. kern's compiled binary
 and the sandbox project remain the end-to-end runtime validation in CI.

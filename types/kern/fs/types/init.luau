@@ -18,7 +18,7 @@ export type OperationResult<Value> = Result.Result<Value, FileOperationError>
 --[=[
 	@within Filesystem
 
-	Filesystem interface accepted by a Kern project.
+	Filesystem interface accepted by a kern project.
 ]=]
 export type Filesystem = {
 	is_file: (self: Filesystem, path: string) -> boolean,

@@ -121,7 +121,7 @@ export type BuildResult = {
 --[=[
 	@within Project
 
-	A configured Kern project and its processing operations.
+	A configured kern project and its processing operations.
 ]=]
 export type Project = {
 	kind: "project",

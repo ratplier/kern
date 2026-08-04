@@ -14,7 +14,7 @@ const function usage(): string
 		"  transform [path ...] write transformed output",
 		"  build                 build the configured project",
 		"  check                 validate without writing output",
-		"  setup                 install matching Kern typedefs",
+		"  setup                 install matching kern typedefs",
 		"",
 		"options:",
 		"  --fix                 apply lint fixes",

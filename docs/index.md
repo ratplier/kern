@@ -3,9 +3,9 @@ sidebar_position: 1
 slug: /
 ---
 
-# Kern
+# kern
 
-Kern is a pure-Luau project tool for linting, AST transforms, require rewriting,
+kern is a pure-Luau project tool for linting, AST transforms, require rewriting,
 and deterministic output.
 
 ## Start here

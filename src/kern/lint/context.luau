@@ -29,7 +29,7 @@ const function validate_severity(value: string): types.Severity
 end
 
 const function normalize_span(source: string, span: syntax_types.Span): syntax_types.Span
-	-- TODO(luau): mixed Kern and Lute span fields.
+	-- TODO(luau): mixed kern and Lute span fields.
 	const raw_span = span :: any
 	if raw_span.start ~= nil and raw_span.finish ~= nil then
 		return raw_span

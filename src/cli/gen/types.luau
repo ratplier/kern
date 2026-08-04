@@ -12,7 +12,7 @@ const Project = require("@kern/project")
 --[=[
 	@within CLI
 
-	Arguments accepted by Kern's project command runner.
+	Arguments accepted by kern's project command runner.
 ]=]
 export type Arguments = {
 	command: "lint" | "transform" | "build" | "check",
@@ -44,7 +44,7 @@ local cli = {}
 --[=[
 	@within CLI
 
-	Parses Kern command arguments without running a project.
+	Parses kern command arguments without running a project.
 
 	@param values Command-line argument values
 	@return The parsed arguments or a validation error
@@ -56,7 +56,7 @@ end
 --[=[
 	@within CLI
 
-	Runs a parsed command against a Kern project.
+	Runs a parsed command against a kern project.
 
 	@param project The project to operate on
 	@param values Parsed command arguments
@@ -268,7 +268,7 @@ export type OperationResult<Value> = Result.Result<Value, FileOperationError>
 --[=[
 	@within Filesystem
 
-	Filesystem interface accepted by a Kern project.
+	Filesystem interface accepted by a kern project.
 ]=]
 export type Filesystem = {
 	is_file: (self: Filesystem, path: string) -> boolean,
@@ -319,14 +319,14 @@ export type Query<Result> = Query.Query<Result>
 export type QueryConfig<Result> = Query.QueryConfig<Result>
 
 --[=[
-	@within Kern
+	@within kern
 
 	The severity assigned to a lint diagnostic.
 ]=]
 export type Severity = "hint" | "info" | "warn" | "error"
 
 --[=[
-	@within Kern
+	@within kern
 
 	A half-open byte range in Luau source.
 ]=]
@@ -336,7 +336,7 @@ export type Span = {
 }
 
 --[=[
-	@within Kern
+	@within kern
 
 	A source edit that can repair a diagnostic.
 ]=]
@@ -346,7 +346,7 @@ export type DiagnosticFix = {
 }
 
 --[=[
-	@within Kern
+	@within kern
 
 	Additional context attached to a diagnostic.
 ]=]
@@ -356,9 +356,9 @@ export type DiagnosticNote = {
 }
 
 --[=[
-	@within Kern
+	@within kern
 
-	A problem reported while Kern processes a source file.
+	A problem reported while kern processes a source file.
 ]=]
 export type Diagnostic = {
 	rule: string,
@@ -376,7 +376,7 @@ export type Diagnostic = {
 local kern = {}
 
 --[=[
-	@within Kern
+	@within kern
 
 	Groups related lint rules, transforms, require resolvers, and output emitters.
 
@@ -389,7 +389,7 @@ function kern.component(name: string, members: { ComponentMember }): Component
 end
 
 --[=[
-	@within Kern
+	@within kern
 
 	Creates a project that can lint, transform, check, or build Luau files.
 
@@ -401,7 +401,7 @@ function kern.project(config: ProjectConfig): Project
 end
 
 --[=[
-	@within Kern
+	@within kern
 
 	Creates a named lint rule from a rule definition.
 
@@ -414,7 +414,7 @@ function kern.lint(name: string, definition: LintDefinition): LintRule
 end
 
 --[=[
-	@within Kern
+	@within kern
 
 	Creates a named source transform from a transform definition.
 
@@ -427,7 +427,7 @@ function kern.transform(name: string, definition: TransformDefinition): Transfor
 end
 
 --[=[
-	@within Kern
+	@within kern
 
 	Creates the module resolver used to inspect and rewrite require calls.
 
@@ -439,7 +439,7 @@ function kern.require(config: RequireConfig): RequireResolver
 end
 
 --[=[
-	@within Kern
+	@within kern
 
 	Creates a comment-directive scope used to suppress rules or transforms.
 
@@ -451,7 +451,7 @@ function kern.scope(config: ScopeConfig): Scope
 end
 
 --[=[
-	@within Kern
+	@within kern
 
 	Creates a reusable syntax query from matchers and a normalizer.
 
@@ -463,7 +463,7 @@ function kern.query<Result>(config: QueryConfig<Result>): Query<Result>
 end
 
 --[=[
-	@within Kern
+	@within kern
 
 	Parses a complete Luau source file.
 
@@ -476,7 +476,7 @@ function kern.parse(source: string, file_path: string?): Syntax.ParseResult
 end
 
 --[=[
-	@within Kern
+	@within kern
 
 	Parses a sequence of Luau statements.
 
@@ -488,7 +488,7 @@ function kern.parse_block(source: string): Syntax.ParseResult
 end
 
 --[=[
-	@within Kern
+	@within kern
 
 	Parses one Luau expression.
 
@@ -500,7 +500,7 @@ function kern.parse_expression(source: string): Syntax.ParseResult
 end
 
 --[=[
-	@within Kern
+	@within kern
 
 	Creates a syntax node from Luau source. A single statement produces that
 	statement node, multiple statements produce a block, and expression source
@@ -519,7 +519,7 @@ function kern.quote(source: string): Syntax.SyntaxNode
 end
 
 --[=[
-	@within Kern
+	@within kern
 
 	Creates an expression node from Luau source.
 
@@ -533,7 +533,7 @@ function kern.quote_expression(source: string): Syntax.SyntaxExpression
 end
 
 --[=[
-	@within Kern
+	@within kern
 
 	Creates a block node from a sequence of Luau statements.
 
@@ -547,85 +547,85 @@ function kern.quote_block(source: string): Syntax.SyntaxRoot
 end
 
 --[=[
-	@within Kern
+	@within kern
 
 	Output emitter constructors, including `directory`.
 ]=]
 kern.output = Output
 --[=[
-	@within Kern
+	@within kern
 
 	Predicates for narrowing query results.
 ]=]
 kern.filters = QueryModule.filters
 --[=[
-	@within Kern
+	@within kern
 
 	Helpers for composing query matchers and normalizers.
 ]=]
 kern.compose = Compose
 --[=[
-	@within Kern
+	@within kern
 
 	Helpers for matching syntax nodes.
 ]=]
 kern.match = QueryModule.match
 --[=[
-	@within Kern
+	@within kern
 
 	Queries for function and method calls.
 ]=]
 kern.calls = Calls
 --[=[
-	@within Kern
+	@within kern
 
 	Queries for function declarations and expressions.
 ]=]
 kern.functions = Catalog.functions
 --[=[
-	@within Kern
+	@within kern
 
 	Queries for local declarations and references.
 ]=]
 kern.locals = Catalog.locals
 --[=[
-	@within Kern
+	@within kern
 
 	Queries for type declarations and annotations.
 ]=]
 kern.types = Catalog.types
 --[=[
-	@within Kern
+	@within kern
 
 	Queries for table constructors and fields.
 ]=]
 kern.tables = Catalog.tables
 --[=[
-	@within Kern
+	@within kern
 
 	Queries for branches, loops, and control-flow statements.
 ]=]
 kern.control_flow = Catalog.control_flow
 --[=[
-	@within Kern
+	@within kern
 
 	Queries for string expressions.
 ]=]
 kern.strings = Catalog.strings
 --[=[
-	@within Kern
+	@within kern
 
 	Queries for unary and binary operators.
 ]=]
 kern.operators = Catalog.operators
 --[=[
-	@within Kern
+	@within kern
 
 	Queries for module-related syntax.
 ]=]
 kern.modules = Catalog.modules
 --[=[
-	@within Kern
+	@within kern
 
 	Queries for source comments.
 ]=]
@@ -987,7 +987,7 @@ export type BuildResult = {
 --[=[
 	@within Project
 
-	A configured Kern project and its processing operations.
+	A configured kern project and its processing operations.
 ]=]
 export type Project = {
 	kind: "project",

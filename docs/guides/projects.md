@@ -25,7 +25,7 @@ Projects lint every matching `include` file. Builds begin at `entries`, resolve
 their reachable module graph, then emit the selected artifacts. This lets you
 lint broad source trees while building only runtime-reachable code.
 
-Kern dogfoods this model in the repository's
+kern dogfoods this model in the repository's
 [`default.kern.luau`](../../default.kern.luau): its recursive `**/*.luau` include
 covers the real tooling tree, while the core entrypoint keeps the self-build
 independent of Lute's host-only runtime modules.

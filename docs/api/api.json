@@ -1,357 +1,337 @@
 {
-    "schema_version": 1, 
+    "schema_version": 1,
     "sections": [
         {
-            "id": "authoring", 
-            "description": "Create components, rules, transforms, and scoped tooling.", 
-            "name": "Authoring", 
+            "id": "authoring",
+            "description": "Create components, rules, transforms, and scoped tooling.",
+            "name": "Authoring",
             "entries": [
                 {
-                    "kind": "type", 
-                    "name": "ScopeBinding", 
-                    "source_path": "types/kern/scope/init.luau", 
-                    "signature": "export type ScopeBinding = \"next\" | \"range\" | \"range_end\" | \"file\"", 
-                    "within": "Scope", 
+                    "kind": "type",
+                    "name": "ScopeBinding",
+                    "source_path": "types/kern/scope/init.luau",
+                    "signature": "export type ScopeBinding = \"next\" | \"range\" | \"range_end\" | \"file\"",
+                    "within": "Scope",
                     "description": [
                         "How a source directive selects the code it suppresses."
-                    ], 
+                    ],
                     "parameters": []
                 },
                 {
-                    "kind": "type", 
-                    "name": "ScopeError", 
-                    "source_path": "types/kern/scope/init.luau", 
-                    "signature": "export type ScopeError = { code: \"scope_error\", message: string, span: Syntax.Span? }", 
-                    "within": "Scope", 
+                    "kind": "type",
+                    "name": "ScopeError",
+                    "source_path": "types/kern/scope/init.luau",
+                    "signature": "export type ScopeError = { code: \"scope_error\", message: string, span: Syntax.Span? }",
+                    "within": "Scope",
                     "description": [
                         "A malformed or misplaced scope directive."
-                    ], 
+                    ],
                     "parameters": []
                 },
                 {
-                    "kind": "type", 
-                    "name": "Severity", 
-                    "source_path": "types/kern/lint/init.luau", 
-                    "signature": "export type Severity = \"hint\" | \"info\" | \"warn\" | \"error\"", 
-                    "within": "Lint", 
+                    "kind": "type",
+                    "name": "Severity",
+                    "source_path": "types/kern/lint/init.luau",
+                    "signature": "export type Severity = \"hint\" | \"info\" | \"warn\" | \"error\"",
+                    "within": "Lint",
                     "description": [
                         "The severity assigned to a lint diagnostic."
-                    ], 
+                    ],
                     "parameters": []
                 },
                 {
-                    "kind": "type", 
-                    "name": "Severity", 
-                    "source_path": "types/kern/init.luau", 
-                    "signature": "export type Severity = \"hint\" | \"info\" | \"warn\" | \"error\"", 
-                    "within": "Kern", 
+                    "kind": "type",
+                    "name": "Severity",
+                    "source_path": "types/kern/init.luau",
+                    "signature": "export type Severity = \"hint\" | \"info\" | \"warn\" | \"error\"",
+                    "within": "kern",
                     "description": [
                         "The severity assigned to a lint diagnostic."
-                    ], 
+                    ],
                     "parameters": []
                 },
                 {
-                    "kind": "type", 
-                    "name": "Suppression", 
-                    "source_path": "types/kern/scope/init.luau", 
-                    "signature": "export type Suppression = { namespace: string, start: number, finish: number }", 
-                    "within": "Scope", 
+                    "kind": "type",
+                    "name": "Suppression",
+                    "source_path": "types/kern/scope/init.luau",
+                    "signature": "export type Suppression = { namespace: string, start: number, finish: number }",
+                    "within": "Scope",
                     "description": [
                         "A source range suppressed by a scope directive."
-                    ], 
+                    ],
                     "parameters": []
                 },
                 {
-                    "kind": "type", 
-                    "name": "TransformPhase", 
-                    "source_path": "types/kern/transform/init.luau", 
-                    "signature": "export type TransformPhase = \"syntax\" | \"module\" | \"finalize\"", 
-                    "within": "Transform", 
-                    "description": [
-                        "The stage at which a transform runs."
-                    ], 
+                    "kind": "type",
+                    "name": "TransformPhase",
+                    "source_path": "types/kern/transform/init.luau",
+                    "signature": "export type TransformPhase = \"syntax\" | \"module\" | \"finalize\"",
+                    "within": "Transform",
+                    "description": ["The stage at which a transform runs."],
                     "parameters": []
                 },
                 {
-                    "kind": "function", 
-                    "returns": "The reusable component", 
-                    "name": "component.new", 
-                    "source_path": "types/kern/component/init.luau", 
-                    "signature": "function component.new(name: string, members: { ComponentMember }): Component", 
-                    "within": "Component", 
+                    "kind": "function",
+                    "returns": "The reusable component",
+                    "name": "component.new",
+                    "source_path": "types/kern/component/init.luau",
+                    "signature": "function component.new(name: string, members: { ComponentMember }): Component",
+                    "within": "Component",
                     "description": [
                         "Groups related lint rules, transforms, require resolvers, and output emitters."
-                    ], 
+                    ],
                     "parameters": [
                         {
-                            "name": "name", 
+                            "name": "name",
                             "description": "A unique name for the component"
                         },
                         {
-                            "name": "members", 
+                            "name": "members",
                             "description": "Rules and project services included in the component"
                         }
                     ]
                 },
                 {
-                    "kind": "value", 
-                    "name": "kern.calls", 
-                    "source_path": "types/kern/init.luau", 
-                    "signature": "kern.calls = Calls", 
-                    "within": "Kern", 
-                    "description": [
-                        "Queries for function and method calls."
-                    ], 
+                    "kind": "value",
+                    "name": "kern.calls",
+                    "source_path": "types/kern/init.luau",
+                    "signature": "kern.calls = Calls",
+                    "within": "kern",
+                    "description": ["Queries for function and method calls."],
                     "parameters": []
                 },
                 {
-                    "kind": "value", 
-                    "name": "kern.comments", 
-                    "source_path": "types/kern/init.luau", 
-                    "signature": "kern.comments = Catalog.comments", 
-                    "within": "Kern", 
-                    "description": [
-                        "Queries for source comments."
-                    ], 
+                    "kind": "value",
+                    "name": "kern.comments",
+                    "source_path": "types/kern/init.luau",
+                    "signature": "kern.comments = Catalog.comments",
+                    "within": "kern",
+                    "description": ["Queries for source comments."],
                     "parameters": []
                 },
                 {
-                    "kind": "function", 
-                    "returns": "The reusable component", 
-                    "name": "kern.component", 
-                    "source_path": "types/kern/init.luau", 
-                    "signature": "function kern.component(name: string, members: { ComponentMember }): Component", 
-                    "within": "Kern", 
+                    "kind": "function",
+                    "returns": "The reusable component",
+                    "name": "kern.component",
+                    "source_path": "types/kern/init.luau",
+                    "signature": "function kern.component(name: string, members: { ComponentMember }): Component",
+                    "within": "kern",
                     "description": [
                         "Groups related lint rules, transforms, require resolvers, and output emitters."
-                    ], 
+                    ],
                     "parameters": [
                         {
-                            "name": "name", 
+                            "name": "name",
                             "description": "A unique name for the component"
                         },
                         {
-                            "name": "members", 
+                            "name": "members",
                             "description": "Rules and services included in the component"
                         }
                     ]
                 },
                 {
-                    "kind": "value", 
-                    "name": "kern.compose", 
-                    "source_path": "types/kern/init.luau", 
-                    "signature": "kern.compose = Compose", 
-                    "within": "Kern", 
+                    "kind": "value",
+                    "name": "kern.compose",
+                    "source_path": "types/kern/init.luau",
+                    "signature": "kern.compose = Compose",
+                    "within": "kern",
                     "description": [
                         "Helpers for composing query matchers and normalizers."
-                    ], 
+                    ],
                     "parameters": []
                 },
                 {
-                    "kind": "value", 
-                    "name": "kern.control_flow", 
-                    "source_path": "types/kern/init.luau", 
-                    "signature": "kern.control_flow = Catalog.control_flow", 
-                    "within": "Kern", 
+                    "kind": "value",
+                    "name": "kern.control_flow",
+                    "source_path": "types/kern/init.luau",
+                    "signature": "kern.control_flow = Catalog.control_flow",
+                    "within": "kern",
                     "description": [
                         "Queries for branches, loops, and control-flow statements."
-                    ], 
+                    ],
                     "parameters": []
                 },
                 {
-                    "kind": "value", 
-                    "name": "kern.filters", 
-                    "source_path": "types/kern/init.luau", 
-                    "signature": "kern.filters = QueryModule.filters", 
-                    "within": "Kern", 
-                    "description": [
-                        "Predicates for narrowing query results."
-                    ], 
+                    "kind": "value",
+                    "name": "kern.filters",
+                    "source_path": "types/kern/init.luau",
+                    "signature": "kern.filters = QueryModule.filters",
+                    "within": "kern",
+                    "description": ["Predicates for narrowing query results."],
                     "parameters": []
                 },
                 {
-                    "kind": "value", 
-                    "name": "kern.functions", 
-                    "source_path": "types/kern/init.luau", 
-                    "signature": "kern.functions = Catalog.functions", 
-                    "within": "Kern", 
+                    "kind": "value",
+                    "name": "kern.functions",
+                    "source_path": "types/kern/init.luau",
+                    "signature": "kern.functions = Catalog.functions",
+                    "within": "kern",
                     "description": [
                         "Queries for function declarations and expressions."
-                    ], 
+                    ],
                     "parameters": []
                 },
                 {
-                    "kind": "function", 
-                    "returns": "The validated lint rule", 
-                    "name": "kern.lint", 
-                    "source_path": "types/kern/init.luau", 
-                    "signature": "function kern.lint(name: string, definition: LintDefinition): LintRule", 
-                    "within": "Kern", 
+                    "kind": "function",
+                    "returns": "The validated lint rule",
+                    "name": "kern.lint",
+                    "source_path": "types/kern/init.luau",
+                    "signature": "function kern.lint(name: string, definition: LintDefinition): LintRule",
+                    "within": "kern",
                     "description": [
                         "Creates a named lint rule from a rule definition."
-                    ], 
+                    ],
                     "parameters": [
                         {
-                            "name": "name", 
+                            "name": "name",
                             "description": "A unique rule name"
                         },
                         {
-                            "name": "definition", 
+                            "name": "definition",
                             "description": "The rule callback, severity, scope, and description"
                         }
                     ]
                 },
                 {
-                    "kind": "value", 
-                    "name": "kern.locals", 
-                    "source_path": "types/kern/init.luau", 
-                    "signature": "kern.locals = Catalog.locals", 
-                    "within": "Kern", 
+                    "kind": "value",
+                    "name": "kern.locals",
+                    "source_path": "types/kern/init.luau",
+                    "signature": "kern.locals = Catalog.locals",
+                    "within": "kern",
                     "description": [
                         "Queries for local declarations and references."
-                    ], 
+                    ],
                     "parameters": []
                 },
                 {
-                    "kind": "value", 
-                    "name": "kern.match", 
-                    "source_path": "types/kern/init.luau", 
-                    "signature": "kern.match = QueryModule.match", 
-                    "within": "Kern", 
-                    "description": [
-                        "Helpers for matching syntax nodes."
-                    ], 
+                    "kind": "value",
+                    "name": "kern.match",
+                    "source_path": "types/kern/init.luau",
+                    "signature": "kern.match = QueryModule.match",
+                    "within": "kern",
+                    "description": ["Helpers for matching syntax nodes."],
                     "parameters": []
                 },
                 {
-                    "kind": "value", 
-                    "name": "kern.modules", 
-                    "source_path": "types/kern/init.luau", 
-                    "signature": "kern.modules = Catalog.modules", 
-                    "within": "Kern", 
-                    "description": [
-                        "Queries for module-related syntax."
-                    ], 
+                    "kind": "value",
+                    "name": "kern.modules",
+                    "source_path": "types/kern/init.luau",
+                    "signature": "kern.modules = Catalog.modules",
+                    "within": "kern",
+                    "description": ["Queries for module-related syntax."],
                     "parameters": []
                 },
                 {
-                    "kind": "value", 
-                    "name": "kern.operators", 
-                    "source_path": "types/kern/init.luau", 
-                    "signature": "kern.operators = Catalog.operators", 
-                    "within": "Kern", 
-                    "description": [
-                        "Queries for unary and binary operators."
-                    ], 
+                    "kind": "value",
+                    "name": "kern.operators",
+                    "source_path": "types/kern/init.luau",
+                    "signature": "kern.operators = Catalog.operators",
+                    "within": "kern",
+                    "description": ["Queries for unary and binary operators."],
                     "parameters": []
                 },
                 {
-                    "kind": "value", 
-                    "name": "kern.output", 
-                    "source_path": "types/kern/init.luau", 
-                    "signature": "kern.output = Output", 
-                    "within": "Kern", 
+                    "kind": "value",
+                    "name": "kern.output",
+                    "source_path": "types/kern/init.luau",
+                    "signature": "kern.output = Output",
+                    "within": "kern",
                     "description": [
                         "Output emitter constructors, including `directory`."
-                    ], 
+                    ],
                     "parameters": []
                 },
                 {
-                    "kind": "function", 
-                    "returns": "The parsed syntax tree or a structured parse error", 
-                    "name": "kern.parse", 
-                    "source_path": "types/kern/init.luau", 
-                    "signature": "function kern.parse(source: string, file_path: string?): Syntax.ParseResult", 
-                    "within": "Kern", 
-                    "description": [
-                        "Parses a complete Luau source file."
-                    ], 
+                    "kind": "function",
+                    "returns": "The parsed syntax tree or a structured parse error",
+                    "name": "kern.parse",
+                    "source_path": "types/kern/init.luau",
+                    "signature": "function kern.parse(source: string, file_path: string?): Syntax.ParseResult",
+                    "within": "kern",
+                    "description": ["Parses a complete Luau source file."],
                     "parameters": [
                         {
-                            "name": "source", 
+                            "name": "source",
                             "description": "The Luau source to parse"
                         },
                         {
-                            "name": "file_path", 
+                            "name": "file_path",
                             "description": "Optional path included in parse errors"
                         }
                     ]
                 },
                 {
-                    "kind": "function", 
-                    "returns": "The parsed syntax tree or a structured parse error", 
-                    "name": "kern.parse_block", 
-                    "source_path": "types/kern/init.luau", 
-                    "signature": "function kern.parse_block(source: string): Syntax.ParseResult", 
-                    "within": "Kern", 
-                    "description": [
-                        "Parses a sequence of Luau statements."
-                    ], 
+                    "kind": "function",
+                    "returns": "The parsed syntax tree or a structured parse error",
+                    "name": "kern.parse_block",
+                    "source_path": "types/kern/init.luau",
+                    "signature": "function kern.parse_block(source: string): Syntax.ParseResult",
+                    "within": "kern",
+                    "description": ["Parses a sequence of Luau statements."],
                     "parameters": [
                         {
-                            "name": "source", 
+                            "name": "source",
                             "description": "The Luau statements to parse"
                         }
                     ]
                 },
                 {
-                    "kind": "function", 
-                    "returns": "The parsed syntax tree or a structured parse error", 
-                    "name": "kern.parse_expression", 
-                    "source_path": "types/kern/init.luau", 
-                    "signature": "function kern.parse_expression(source: string): Syntax.ParseResult", 
-                    "within": "Kern", 
-                    "description": [
-                        "Parses one Luau expression."
-                    ], 
+                    "kind": "function",
+                    "returns": "The parsed syntax tree or a structured parse error",
+                    "name": "kern.parse_expression",
+                    "source_path": "types/kern/init.luau",
+                    "signature": "function kern.parse_expression(source: string): Syntax.ParseResult",
+                    "within": "kern",
+                    "description": ["Parses one Luau expression."],
                     "parameters": [
                         {
-                            "name": "source", 
+                            "name": "source",
                             "description": "The Luau expression to parse"
                         }
                     ]
                 },
                 {
-                    "kind": "function", 
-                    "returns": "The configured project", 
-                    "name": "kern.project", 
-                    "source_path": "types/kern/init.luau", 
-                    "signature": "function kern.project(config: ProjectConfig): Project", 
-                    "within": "Kern", 
+                    "kind": "function",
+                    "returns": "The configured project",
+                    "name": "kern.project",
+                    "source_path": "types/kern/init.luau",
+                    "signature": "function kern.project(config: ProjectConfig): Project",
+                    "within": "kern",
                     "description": [
                         "Creates a project that can lint, transform, check, or build Luau files."
-                    ], 
+                    ],
                     "parameters": [
                         {
-                            "name": "config", 
+                            "name": "config",
                             "description": "Source paths, components, filesystem, and output settings"
                         }
                     ]
                 },
                 {
-                    "kind": "function", 
-                    "returns": "A reusable query of normalized results", 
-                    "name": "kern.query", 
-                    "source_path": "types/kern/init.luau", 
-                    "signature": "function kern.query<Result>(config: QueryConfig<Result>): Query<Result>", 
-                    "within": "Kern", 
+                    "kind": "function",
+                    "returns": "A reusable query of normalized results",
+                    "name": "kern.query",
+                    "source_path": "types/kern/init.luau",
+                    "signature": "function kern.query<Result>(config: QueryConfig<Result>): Query<Result>",
+                    "within": "kern",
                     "description": [
                         "Creates a reusable syntax query from matchers and a normalizer."
-                    ], 
+                    ],
                     "parameters": [
                         {
-                            "name": "config", 
+                            "name": "config",
                             "description": "Matchers and a function that normalizes matching nodes"
                         }
                     ]
                 },
                 {
-                    "kind": "function", 
-                    "returns": "The generated syntax node", 
-                    "name": "kern.quote", 
-                    "source_path": "types/kern/init.luau", 
-                    "signature": "function kern.quote(source: string): Syntax.SyntaxNode", 
-                    "within": "Kern", 
+                    "kind": "function",
+                    "returns": "The generated syntax node",
+                    "name": "kern.quote",
+                    "source_path": "types/kern/init.luau",
+                    "signature": "function kern.quote(source: string): Syntax.SyntaxNode",
+                    "within": "kern",
                     "description": [
                         "Creates a syntax node from Luau source. A single statement produces that",
                         "statement node, multiple statements produce a block, and expression source",
@@ -361,295 +341,287 @@
                         "`context:replace(target, kern.quote(\"local answer = 40\"))`.",
                         "",
                         "Throws an error when `source` is empty or is not valid Luau."
-                    ], 
+                    ],
                     "parameters": [
                         {
-                            "name": "source", 
+                            "name": "source",
                             "description": "The Luau statement, statements, or expression to quote"
                         }
                     ]
                 },
                 {
-                    "kind": "function", 
-                    "returns": "The generated statement block", 
-                    "name": "kern.quote_block", 
-                    "source_path": "types/kern/init.luau", 
-                    "signature": "function kern.quote_block(source: string): Syntax.SyntaxRoot", 
-                    "within": "Kern", 
+                    "kind": "function",
+                    "returns": "The generated statement block",
+                    "name": "kern.quote_block",
+                    "source_path": "types/kern/init.luau",
+                    "signature": "function kern.quote_block(source: string): Syntax.SyntaxRoot",
+                    "within": "kern",
                     "description": [
                         "Creates a block node from a sequence of Luau statements.",
                         "",
                         "Throws an error when `source` is not valid Luau."
-                    ], 
+                    ],
                     "parameters": [
                         {
-                            "name": "source", 
+                            "name": "source",
                             "description": "The Luau statements to quote"
                         }
                     ]
                 },
                 {
-                    "kind": "function", 
-                    "returns": "The generated expression node", 
-                    "name": "kern.quote_expression", 
-                    "source_path": "types/kern/init.luau", 
-                    "signature": "function kern.quote_expression(source: string): Syntax.SyntaxExpression", 
-                    "within": "Kern", 
+                    "kind": "function",
+                    "returns": "The generated expression node",
+                    "name": "kern.quote_expression",
+                    "source_path": "types/kern/init.luau",
+                    "signature": "function kern.quote_expression(source: string): Syntax.SyntaxExpression",
+                    "within": "kern",
                     "description": [
                         "Creates an expression node from Luau source.",
                         "",
                         "Throws an error when `source` is not exactly one valid Luau expression."
-                    ], 
+                    ],
                     "parameters": [
                         {
-                            "name": "source", 
+                            "name": "source",
                             "description": "The Luau expression to quote"
                         }
                     ]
                 },
                 {
-                    "kind": "function", 
-                    "returns": "The configured require resolver", 
-                    "name": "kern.require", 
-                    "source_path": "types/kern/init.luau", 
-                    "signature": "function kern.require(config: RequireConfig): RequireResolver", 
-                    "within": "Kern", 
+                    "kind": "function",
+                    "returns": "The configured require resolver",
+                    "name": "kern.require",
+                    "source_path": "types/kern/init.luau",
+                    "signature": "function kern.require(config: RequireConfig): RequireResolver",
+                    "within": "kern",
                     "description": [
                         "Creates the module resolver used to inspect and rewrite require calls."
-                    ], 
+                    ],
                     "parameters": [
                         {
-                            "name": "config", 
+                            "name": "config",
                             "description": "Aliases and module resolution behavior"
                         }
                     ]
                 },
                 {
-                    "kind": "function", 
-                    "returns": "The configured scope", 
-                    "name": "kern.scope", 
-                    "source_path": "types/kern/init.luau", 
-                    "signature": "function kern.scope(config: ScopeConfig): Scope", 
-                    "within": "Kern", 
+                    "kind": "function",
+                    "returns": "The configured scope",
+                    "name": "kern.scope",
+                    "source_path": "types/kern/init.luau",
+                    "signature": "function kern.scope(config: ScopeConfig): Scope",
+                    "within": "kern",
                     "description": [
                         "Creates a comment-directive scope used to suppress rules or transforms."
-                    ], 
+                    ],
                     "parameters": [
                         {
-                            "name": "config", 
+                            "name": "config",
                             "description": "The directive namespace and binding names"
                         }
                     ]
                 },
                 {
-                    "kind": "value", 
-                    "name": "kern.strings", 
-                    "source_path": "types/kern/init.luau", 
-                    "signature": "kern.strings = Catalog.strings", 
-                    "within": "Kern", 
-                    "description": [
-                        "Queries for string expressions."
-                    ], 
+                    "kind": "value",
+                    "name": "kern.strings",
+                    "source_path": "types/kern/init.luau",
+                    "signature": "kern.strings = Catalog.strings",
+                    "within": "kern",
+                    "description": ["Queries for string expressions."],
                     "parameters": []
                 },
                 {
-                    "kind": "value", 
-                    "name": "kern.tables", 
-                    "source_path": "types/kern/init.luau", 
-                    "signature": "kern.tables = Catalog.tables", 
-                    "within": "Kern", 
+                    "kind": "value",
+                    "name": "kern.tables",
+                    "source_path": "types/kern/init.luau",
+                    "signature": "kern.tables = Catalog.tables",
+                    "within": "kern",
                     "description": [
                         "Queries for table constructors and fields."
-                    ], 
+                    ],
                     "parameters": []
                 },
                 {
-                    "kind": "function", 
-                    "returns": "The validated transform", 
-                    "name": "kern.transform", 
-                    "source_path": "types/kern/init.luau", 
-                    "signature": "function kern.transform(name: string, definition: TransformDefinition): TransformRule", 
-                    "within": "Kern", 
+                    "kind": "function",
+                    "returns": "The validated transform",
+                    "name": "kern.transform",
+                    "source_path": "types/kern/init.luau",
+                    "signature": "function kern.transform(name: string, definition: TransformDefinition): TransformRule",
+                    "within": "kern",
                     "description": [
                         "Creates a named source transform from a transform definition."
-                    ], 
+                    ],
                     "parameters": [
                         {
-                            "name": "name", 
+                            "name": "name",
                             "description": "A unique transform name"
                         },
                         {
-                            "name": "definition", 
+                            "name": "definition",
                             "description": "The transform callback, phase, and scope"
                         }
                     ]
                 },
                 {
-                    "kind": "value", 
-                    "name": "kern.types", 
-                    "source_path": "types/kern/init.luau", 
-                    "signature": "kern.types = Catalog.types", 
-                    "within": "Kern", 
+                    "kind": "value",
+                    "name": "kern.types",
+                    "source_path": "types/kern/init.luau",
+                    "signature": "kern.types = Catalog.types",
+                    "within": "kern",
                     "description": [
                         "Queries for type declarations and annotations."
-                    ], 
+                    ],
                     "parameters": []
                 },
                 {
-                    "kind": "function", 
-                    "returns": "Whether `left` sorts before `right`", 
-                    "name": "lint.compare", 
-                    "source_path": "types/kern/lint/init.luau", 
-                    "signature": "function lint.compare(left: Diagnostic, right: Diagnostic): boolean", 
-                    "within": "Lint", 
+                    "kind": "function",
+                    "returns": "Whether `left` sorts before `right`",
+                    "name": "lint.compare",
+                    "source_path": "types/kern/lint/init.luau",
+                    "signature": "function lint.compare(left: Diagnostic, right: Diagnostic): boolean",
+                    "within": "Lint",
                     "description": [
                         "Orders two diagnostics deterministically by file and source position."
-                    ], 
+                    ],
                     "parameters": [
                         {
-                            "name": "left", 
+                            "name": "left",
                             "description": "The first diagnostic"
                         },
                         {
-                            "name": "right", 
+                            "name": "right",
                             "description": "The second diagnostic"
                         }
                     ]
                 },
                 {
-                    "kind": "function", 
-                    "returns": "A context that reports diagnostics", 
-                    "name": "lint.context", 
-                    "source_path": "types/kern/lint/init.luau", 
-                    "signature": "function lint.context(", 
-                    "within": "Lint", 
+                    "kind": "function",
+                    "returns": "A context that reports diagnostics",
+                    "name": "lint.context",
+                    "source_path": "types/kern/lint/init.luau",
+                    "signature": "function lint.context(",
+                    "within": "Lint",
                     "description": [
                         "Creates a lint context for a source file."
-                    ], 
+                    ],
                     "parameters": [
                         {
-                            "name": "source", 
+                            "name": "source",
                             "description": "The source being linted"
                         },
                         {
-                            "name": "file_path", 
+                            "name": "file_path",
                             "description": "The source file path"
                         },
                         {
-                            "name": "project_root", 
+                            "name": "project_root",
                             "description": "The owning project root"
                         },
                         {
-                            "name": "rule", 
+                            "name": "rule",
                             "description": "The active lint rule"
                         },
                         {
-                            "name": "component_name", 
+                            "name": "component_name",
                             "description": "The component containing the rule"
                         },
                         {
-                            "name": "scope_map", 
+                            "name": "scope_map",
                             "description": "Parsed suppressions for the source"
                         }
                     ]
                 },
                 {
-                    "kind": "function", 
-                    "returns": "Whether the diagnostic meets the threshold", 
-                    "name": "lint.meets_severity", 
-                    "source_path": "types/kern/lint/init.luau", 
-                    "signature": "function lint.meets_severity(severity: Severity, minimum: Severity): boolean", 
-                    "within": "Lint", 
+                    "kind": "function",
+                    "returns": "Whether the diagnostic meets the threshold",
+                    "name": "lint.meets_severity",
+                    "source_path": "types/kern/lint/init.luau",
+                    "signature": "function lint.meets_severity(severity: Severity, minimum: Severity): boolean",
+                    "within": "Lint",
                     "description": [
                         "Returns whether a severity meets a configured minimum severity."
-                    ], 
+                    ],
                     "parameters": [
                         {
-                            "name": "severity", 
+                            "name": "severity",
                             "description": "The diagnostic severity"
                         },
                         {
-                            "name": "minimum", 
+                            "name": "minimum",
                             "description": "The minimum accepted severity"
                         }
                     ]
                 },
                 {
-                    "kind": "function", 
-                    "returns": "The validated lint rule", 
-                    "name": "lint.new", 
-                    "source_path": "types/kern/lint/init.luau", 
-                    "signature": "function lint.new(name: string, definition: LintDefinition): LintRule", 
-                    "within": "Lint", 
-                    "description": [
-                        "Creates a named lint rule."
-                    ], 
+                    "kind": "function",
+                    "returns": "The validated lint rule",
+                    "name": "lint.new",
+                    "source_path": "types/kern/lint/init.luau",
+                    "signature": "function lint.new(name: string, definition: LintDefinition): LintRule",
+                    "within": "Lint",
+                    "description": ["Creates a named lint rule."],
                     "parameters": [
                         {
-                            "name": "name", 
+                            "name": "name",
                             "description": "A unique rule name"
                         },
                         {
-                            "name": "definition", 
+                            "name": "definition",
                             "description": "The callback and optional rule settings"
                         }
                     ]
                 },
                 {
-                    "kind": "function", 
-                    "returns": "The configured scope", 
-                    "name": "scope.new", 
-                    "source_path": "types/kern/scope/init.luau", 
-                    "signature": "function scope.new(config: ScopeConfig): Scope", 
-                    "within": "Scope", 
-                    "description": [
-                        "Creates a comment-directive scope."
-                    ], 
+                    "kind": "function",
+                    "returns": "The configured scope",
+                    "name": "scope.new",
+                    "source_path": "types/kern/scope/init.luau",
+                    "signature": "function scope.new(config: ScopeConfig): Scope",
+                    "within": "Scope",
+                    "description": ["Creates a comment-directive scope."],
                     "parameters": [
                         {
-                            "name": "config", 
+                            "name": "config",
                             "description": "The directive namespace and binding names"
                         }
                     ]
                 },
                 {
-                    "kind": "function", 
-                    "returns": "The suppression map or a structured scope error", 
-                    "name": "scope.parse", 
-                    "source_path": "types/kern/scope/init.luau", 
-                    "signature": "function scope.parse(source: string, value: Scope): Result.Result<ScopeMap, ScopeError>", 
-                    "within": "Scope", 
+                    "kind": "function",
+                    "returns": "The suppression map or a structured scope error",
+                    "name": "scope.parse",
+                    "source_path": "types/kern/scope/init.luau",
+                    "signature": "function scope.parse(source: string, value: Scope): Result.Result<ScopeMap, ScopeError>",
+                    "within": "Scope",
                     "description": [
                         "Parses all configured directives in a source file."
-                    ], 
+                    ],
                     "parameters": [
                         {
-                            "name": "source", 
+                            "name": "source",
                             "description": "The source containing directives"
                         },
                         {
-                            "name": "value", 
+                            "name": "value",
                             "description": "The scope configuration to apply"
                         }
                     ]
                 },
                 {
-                    "kind": "function", 
-                    "returns": "The validated transform", 
-                    "name": "transform.new", 
-                    "source_path": "types/kern/transform/init.luau", 
-                    "signature": "function transform.new(name: string, definition: TransformDefinition): TransformRule", 
-                    "within": "Transform", 
-                    "description": [
-                        "Creates a named source transform."
-                    ], 
+                    "kind": "function",
+                    "returns": "The validated transform",
+                    "name": "transform.new",
+                    "source_path": "types/kern/transform/init.luau",
+                    "signature": "function transform.new(name: string, definition: TransformDefinition): TransformRule",
+                    "within": "Transform",
+                    "description": ["Creates a named source transform."],
                     "parameters": [
                         {
-                            "name": "name", 
+                            "name": "name",
                             "description": "A unique transform name"
                         },
                         {
-                            "name": "definition", 
+                            "name": "definition",
                             "description": "The callback, phase, and optional scope"
                         }
                     ]
@@ -657,102 +629,96 @@
             ]
         },
         {
-            "id": "projects-and-output", 
-            "description": "Configure projects, module resolution, filesystems, and build output.", 
-            "name": "Projects and output", 
+            "id": "projects-and-output",
+            "description": "Configure projects, module resolution, filesystems, and build output.",
+            "name": "Projects and output",
             "entries": [
                 {
-                    "kind": "type", 
-                    "name": "DiagnosticPolicy", 
-                    "source_path": "types/kern/project/init.luau", 
-                    "signature": "export type DiagnosticPolicy = { minimum_failure_severity: Lint.Severity }", 
-                    "within": "Project", 
+                    "kind": "type",
+                    "name": "DiagnosticPolicy",
+                    "source_path": "types/kern/project/init.luau",
+                    "signature": "export type DiagnosticPolicy = { minimum_failure_severity: Lint.Severity }",
+                    "within": "Project",
                     "description": [
                         "Controls which diagnostics make a project operation fail."
-                    ], 
+                    ],
                     "parameters": []
                 },
                 {
-                    "kind": "value", 
-                    "returns": "A directory output emitter", 
-                    "name": "output.directory", 
-                    "source_path": "types/kern/output/init.luau", 
-                    "signature": "output.directory = output.new", 
-                    "within": "Output", 
-                    "description": [
-                        "Creates a directory output emitter."
-                    ], 
+                    "kind": "value",
+                    "returns": "A directory output emitter",
+                    "name": "output.directory",
+                    "source_path": "types/kern/output/init.luau",
+                    "signature": "output.directory = output.new",
+                    "within": "Output",
+                    "description": ["Creates a directory output emitter."],
                     "parameters": [
                         {
-                            "name": "config", 
+                            "name": "config",
                             "description": "The output directory, selected artifacts, and write behavior"
                         }
                     ]
                 },
                 {
-                    "kind": "function", 
-                    "returns": "A directory output emitter", 
-                    "name": "output.new", 
-                    "source_path": "types/kern/output/init.luau", 
-                    "signature": "function output.new(config: OutputConfig): OutputEmitter", 
-                    "within": "Output", 
-                    "description": [
-                        "Creates a directory output emitter."
-                    ], 
+                    "kind": "function",
+                    "returns": "A directory output emitter",
+                    "name": "output.new",
+                    "source_path": "types/kern/output/init.luau",
+                    "signature": "function output.new(config: OutputConfig): OutputEmitter",
+                    "within": "Output",
+                    "description": ["Creates a directory output emitter."],
                     "parameters": [
                         {
-                            "name": "config", 
+                            "name": "config",
                             "description": "The output directory, selected artifacts, and write behavior"
                         }
                     ]
                 },
                 {
-                    "kind": "function", 
-                    "returns": "The configured project", 
-                    "name": "project.new", 
-                    "source_path": "types/kern/project/init.luau", 
-                    "signature": "function project.new(config: ProjectConfig): Project", 
-                    "within": "Project", 
+                    "kind": "function",
+                    "returns": "The configured project",
+                    "name": "project.new",
+                    "source_path": "types/kern/project/init.luau",
+                    "signature": "function project.new(config: ProjectConfig): Project",
+                    "within": "Project",
                     "description": [
                         "Creates a project from source paths and reusable components."
-                    ], 
+                    ],
                     "parameters": [
                         {
-                            "name": "config", 
+                            "name": "config",
                             "description": "Source paths, components, filesystem, output, and diagnostic policy"
                         }
                     ]
                 },
                 {
-                    "kind": "function", 
-                    "returns": "The configured module resolver", 
-                    "name": "resolver.new", 
-                    "source_path": "types/kern/require/init.luau", 
-                    "signature": "function resolver.new(config: RequireConfig): RequireResolver", 
-                    "within": "Require", 
-                    "description": [
-                        "Creates a module resolver."
-                    ], 
+                    "kind": "function",
+                    "returns": "The configured module resolver",
+                    "name": "resolver.new",
+                    "source_path": "types/kern/require/init.luau",
+                    "signature": "function resolver.new(config: RequireConfig): RequireResolver",
+                    "within": "Require",
+                    "description": ["Creates a module resolver."],
                     "parameters": [
                         {
-                            "name": "config", 
+                            "name": "config",
                             "description": "Aliases, extensions, index names, and resolution behavior"
                         }
                     ]
                 },
                 {
-                    "kind": "function", 
-                    "returns": "The discovered require calls or a structured parse error", 
-                    "name": "resolver.scan", 
-                    "source_path": "types/kern/require/init.luau", 
-                    "signature": "function resolver.scan(source: string): Result.Result<{ RequireRequest }, RequireError>", 
-                    "within": "Require", 
+                    "kind": "function",
+                    "returns": "The discovered require calls or a structured parse error",
+                    "name": "resolver.scan",
+                    "source_path": "types/kern/require/init.luau",
+                    "signature": "function resolver.scan(source: string): Result.Result<{ RequireRequest }, RequireError>",
+                    "within": "Require",
                     "description": [
                         "Finds supported require calls in Luau source."
-                    ], 
+                    ],
                     "parameters": [
                         {
-                            "name": "source", 
+                            "name": "source",
                             "description": "The Luau source to inspect"
                         }
                     ]
@@ -760,378 +726,366 @@
             ]
         },
         {
-            "id": "syntax-and-queries", 
-            "description": "Parse Luau, create source nodes, and inspect syntax with queries.", 
-            "name": "Syntax and queries", 
+            "id": "syntax-and-queries",
+            "description": "Parse Luau, create source nodes, and inspect syntax with queries.",
+            "name": "Syntax and queries",
             "entries": [
                 {
-                    "kind": "type", 
-                    "name": "FunctionParameter", 
-                    "source_path": "types/kern/query/builtins/init.luau", 
-                    "signature": "export type FunctionParameter = { name: string?, raw: Node }", 
-                    "within": "Queries", 
+                    "kind": "type",
+                    "name": "FunctionParameter",
+                    "source_path": "types/kern/query/builtins/init.luau",
+                    "signature": "export type FunctionParameter = { name: string?, raw: Node }",
+                    "within": "Queries",
                     "description": [
                         "A normalized function parameter and its original syntax node."
-                    ], 
+                    ],
                     "parameters": []
                 },
                 {
-                    "kind": "type", 
-                    "name": "OperatorInfo", 
-                    "source_path": "types/kern/query/builtins/init.luau", 
-                    "signature": "export type OperatorInfo = { operator: string, is_binary: boolean, is_unary: boolean, span: Span, raw: Node }", 
-                    "within": "Queries", 
+                    "kind": "type",
+                    "name": "OperatorInfo",
+                    "source_path": "types/kern/query/builtins/init.luau",
+                    "signature": "export type OperatorInfo = { operator: string, is_binary: boolean, is_unary: boolean, span: Span, raw: Node }",
+                    "within": "Queries",
                     "description": [
                         "Normalized metadata for a unary or binary operator expression."
-                    ], 
+                    ],
                     "parameters": []
                 },
                 {
-                    "kind": "type", 
-                    "name": "ParseResult", 
-                    "source_path": "types/kern/syntax/types/init.luau", 
-                    "signature": "export type ParseResult = { ok: true, tree: SyntaxTree } | { ok: false, error: ParseError }", 
-                    "within": "Syntax", 
-                    "description": [
-                        "The result of parsing Luau source."
-                    ], 
+                    "kind": "type",
+                    "name": "ParseResult",
+                    "source_path": "types/kern/syntax/types/init.luau",
+                    "signature": "export type ParseResult = { ok: true, tree: SyntaxTree } | { ok: false, error: ParseError }",
+                    "within": "Syntax",
+                    "description": ["The result of parsing Luau source."],
                     "parameters": []
                 },
                 {
-                    "kind": "type", 
-                    "name": "SourceLocation", 
-                    "source_path": "types/kern/syntax/types/init.luau", 
-                    "signature": "export type SourceLocation = { line: number, column: number }", 
-                    "within": "Syntax", 
-                    "description": [
-                        "A one-based position in Luau source."
-                    ], 
+                    "kind": "type",
+                    "name": "SourceLocation",
+                    "source_path": "types/kern/syntax/types/init.luau",
+                    "signature": "export type SourceLocation = { line: number, column: number }",
+                    "within": "Syntax",
+                    "description": ["A one-based position in Luau source."],
                     "parameters": []
                 },
                 {
-                    "kind": "type", 
-                    "name": "Span", 
-                    "source_path": "types/kern/syntax/types/init.luau", 
-                    "signature": "export type Span = { start: number, finish: number }", 
-                    "within": "Syntax", 
-                    "description": [
-                        "A half-open byte range in Luau source."
-                    ], 
+                    "kind": "type",
+                    "name": "Span",
+                    "source_path": "types/kern/syntax/types/init.luau",
+                    "signature": "export type Span = { start: number, finish: number }",
+                    "within": "Syntax",
+                    "description": ["A half-open byte range in Luau source."],
                     "parameters": []
                 },
                 {
-                    "kind": "type", 
-                    "name": "SyntaxExpression", 
-                    "source_path": "types/kern/syntax/types/init.luau", 
-                    "signature": "export type SyntaxExpression = syntax.AstExpr", 
-                    "within": "Syntax", 
-                    "description": [
-                        "Any Luau expression node."
-                    ], 
+                    "kind": "type",
+                    "name": "SyntaxExpression",
+                    "source_path": "types/kern/syntax/types/init.luau",
+                    "signature": "export type SyntaxExpression = syntax.AstExpr",
+                    "within": "Syntax",
+                    "description": ["Any Luau expression node."],
                     "parameters": []
                 },
                 {
-                    "kind": "type", 
-                    "name": "SyntaxNode", 
-                    "source_path": "types/kern/syntax/types/init.luau", 
-                    "signature": "export type SyntaxNode = syntax.AstNode", 
-                    "within": "Syntax", 
-                    "description": [
-                        "Any Luau AST node."
-                    ], 
+                    "kind": "type",
+                    "name": "SyntaxNode",
+                    "source_path": "types/kern/syntax/types/init.luau",
+                    "signature": "export type SyntaxNode = syntax.AstNode",
+                    "within": "Syntax",
+                    "description": ["Any Luau AST node."],
                     "parameters": []
                 },
                 {
-                    "kind": "type", 
-                    "name": "SyntaxRoot", 
-                    "source_path": "types/kern/syntax/types/init.luau", 
-                    "signature": "export type SyntaxRoot = syntax.AstStatBlock", 
-                    "within": "Syntax", 
+                    "kind": "type",
+                    "name": "SyntaxRoot",
+                    "source_path": "types/kern/syntax/types/init.luau",
+                    "signature": "export type SyntaxRoot = syntax.AstStatBlock",
+                    "within": "Syntax",
                     "description": [
                         "The root statement block of a parsed Luau file or quoted block."
-                    ], 
+                    ],
                     "parameters": []
                 },
                 {
-                    "kind": "type", 
-                    "name": "SyntaxTree", 
-                    "source_path": "types/kern/syntax/types/init.luau", 
-                    "signature": "export type SyntaxTree = syntax.ParseResult", 
-                    "within": "Syntax", 
+                    "kind": "type",
+                    "name": "SyntaxTree",
+                    "source_path": "types/kern/syntax/types/init.luau",
+                    "signature": "export type SyntaxTree = syntax.ParseResult",
+                    "within": "Syntax",
                     "description": [
                         "The syntax tree returned by Lute's Luau parser."
-                    ], 
+                    ],
                     "parameters": []
                 },
                 {
-                    "kind": "type", 
-                    "name": "TypeInfo", 
-                    "source_path": "types/kern/query/builtins/init.luau", 
-                    "signature": "export type TypeInfo = { kind: string, name: string?, is_export: boolean, span: Span, raw: Node }", 
-                    "within": "Queries", 
+                    "kind": "type",
+                    "name": "TypeInfo",
+                    "source_path": "types/kern/query/builtins/init.luau",
+                    "signature": "export type TypeInfo = { kind: string, name: string?, is_export: boolean, span: Span, raw: Node }",
+                    "within": "Queries",
                     "description": [
                         "Normalized metadata for a type annotation or declaration."
-                    ], 
+                    ],
                     "parameters": []
                 },
                 {
-                    "kind": "value", 
-                    "name": "calls.any", 
-                    "source_path": "types/kern/query/builtins/calls/init.luau", 
-                    "signature": "calls.any = nil :: Query<CallInfo>", 
-                    "within": "Calls", 
-                    "description": [
-                        "Matches every function and method call."
-                    ], 
+                    "kind": "value",
+                    "name": "calls.any",
+                    "source_path": "types/kern/query/builtins/calls/init.luau",
+                    "signature": "calls.any = nil :: Query<CallInfo>",
+                    "within": "Calls",
+                    "description": ["Matches every function and method call."],
                     "parameters": []
                 },
                 {
-                    "kind": "function", 
-                    "returns": "A reusable call query", 
-                    "name": "calls.argument_count_between", 
-                    "source_path": "types/kern/query/builtins/calls/init.luau", 
-                    "signature": "function calls.argument_count_between(minimum: number, maximum: number): Query<CallInfo>", 
-                    "within": "Calls", 
+                    "kind": "function",
+                    "returns": "A reusable call query",
+                    "name": "calls.argument_count_between",
+                    "source_path": "types/kern/query/builtins/calls/init.luau",
+                    "signature": "function calls.argument_count_between(minimum: number, maximum: number): Query<CallInfo>",
+                    "within": "Calls",
                     "description": [
                         "Matches calls whose argument count is within an inclusive range."
-                    ], 
+                    ],
                     "parameters": [
                         {
-                            "name": "minimum", 
+                            "name": "minimum",
                             "description": "The inclusive minimum argument count"
                         },
                         {
-                            "name": "maximum", 
+                            "name": "maximum",
                             "description": "The inclusive maximum argument count"
                         }
                     ]
                 },
                 {
-                    "kind": "function", 
-                    "returns": "A cached call query", 
-                    "name": "calls.global", 
-                    "source_path": "types/kern/query/builtins/calls/init.luau", 
-                    "signature": "function calls.global(name: string): Query<CallInfo>", 
-                    "within": "Calls", 
+                    "kind": "function",
+                    "returns": "A cached call query",
+                    "name": "calls.global",
+                    "source_path": "types/kern/query/builtins/calls/init.luau",
+                    "signature": "function calls.global(name: string): Query<CallInfo>",
+                    "within": "Calls",
                     "description": [
                         "Matches calls to a global function with the given name."
-                    ], 
+                    ],
                     "parameters": [
                         {
-                            "name": "name", 
+                            "name": "name",
                             "description": "The global function name"
                         }
                     ]
                 },
                 {
-                    "kind": "function", 
-                    "returns": "A cached call query", 
-                    "name": "calls.member", 
-                    "source_path": "types/kern/query/builtins/calls/init.luau", 
-                    "signature": "function calls.member(name: string?): Query<CallInfo>", 
-                    "within": "Calls", 
+                    "kind": "function",
+                    "returns": "A cached call query",
+                    "name": "calls.member",
+                    "source_path": "types/kern/query/builtins/calls/init.luau",
+                    "signature": "function calls.member(name: string?): Query<CallInfo>",
+                    "within": "Calls",
                     "description": [
                         "Matches non-global member calls, optionally restricted to a member name."
-                    ], 
+                    ],
                     "parameters": [
                         {
-                            "name": "name", 
+                            "name": "name",
                             "description": "An optional member name"
                         }
                     ]
                 },
                 {
-                    "kind": "function", 
-                    "returns": "A cached call query", 
-                    "name": "calls.method", 
-                    "source_path": "types/kern/query/builtins/calls/init.luau", 
-                    "signature": "function calls.method(name: string?): Query<CallInfo>", 
-                    "within": "Calls", 
+                    "kind": "function",
+                    "returns": "A cached call query",
+                    "name": "calls.method",
+                    "source_path": "types/kern/query/builtins/calls/init.luau",
+                    "signature": "function calls.method(name: string?): Query<CallInfo>",
+                    "within": "Calls",
                     "description": [
                         "Matches method calls, optionally restricted to a method name."
-                    ], 
+                    ],
                     "parameters": [
                         {
-                            "name": "name", 
+                            "name": "name",
                             "description": "An optional method name"
                         }
                     ]
                 },
                 {
-                    "kind": "function", 
-                    "returns": "A cached call query", 
-                    "name": "calls.with_argument_count", 
-                    "source_path": "types/kern/query/builtins/calls/init.luau", 
-                    "signature": "function calls.with_argument_count(count: number): Query<CallInfo>", 
-                    "within": "Calls", 
+                    "kind": "function",
+                    "returns": "A cached call query",
+                    "name": "calls.with_argument_count",
+                    "source_path": "types/kern/query/builtins/calls/init.luau",
+                    "signature": "function calls.with_argument_count(count: number): Query<CallInfo>",
+                    "within": "Calls",
                     "description": [
                         "Matches calls with exactly `count` arguments."
-                    ], 
+                    ],
                     "parameters": [
                         {
-                            "name": "count", 
+                            "name": "count",
                             "description": "The required argument count"
                         }
                     ]
                 },
                 {
-                    "kind": "function", 
-                    "returns": "A reusable call query", 
-                    "name": "calls.with_maximum_arguments", 
-                    "source_path": "types/kern/query/builtins/calls/init.luau", 
-                    "signature": "function calls.with_maximum_arguments(maximum: number): Query<CallInfo>", 
-                    "within": "Calls", 
+                    "kind": "function",
+                    "returns": "A reusable call query",
+                    "name": "calls.with_maximum_arguments",
+                    "source_path": "types/kern/query/builtins/calls/init.luau",
+                    "signature": "function calls.with_maximum_arguments(maximum: number): Query<CallInfo>",
+                    "within": "Calls",
                     "description": [
                         "Matches calls with at most `maximum` arguments."
-                    ], 
+                    ],
                     "parameters": [
                         {
-                            "name": "maximum", 
+                            "name": "maximum",
                             "description": "The maximum argument count"
                         }
                     ]
                 },
                 {
-                    "kind": "function", 
-                    "returns": "A cached call query", 
-                    "name": "calls.with_minimum_arguments", 
-                    "source_path": "types/kern/query/builtins/calls/init.luau", 
-                    "signature": "function calls.with_minimum_arguments(minimum: number): Query<CallInfo>", 
-                    "within": "Calls", 
+                    "kind": "function",
+                    "returns": "A cached call query",
+                    "name": "calls.with_minimum_arguments",
+                    "source_path": "types/kern/query/builtins/calls/init.luau",
+                    "signature": "function calls.with_minimum_arguments(minimum: number): Query<CallInfo>",
+                    "within": "Calls",
                     "description": [
                         "Matches calls with at least `minimum` arguments."
-                    ], 
+                    ],
                     "parameters": [
                         {
-                            "name": "minimum", 
+                            "name": "minimum",
                             "description": "The minimum argument count"
                         }
                     ]
                 },
                 {
-                    "kind": "function", 
-                    "returns": "The intersected query", 
-                    "name": "compose.intersect", 
-                    "source_path": "types/kern/query/compose/init.luau", 
-                    "signature": "function compose.intersect<Result>(first: Query.Query<Result>, second: Query.Query<Result>): Query.Query<Result>", 
-                    "within": "Query", 
+                    "kind": "function",
+                    "returns": "The intersected query",
+                    "name": "compose.intersect",
+                    "source_path": "types/kern/query/compose/init.luau",
+                    "signature": "function compose.intersect<Result>(first: Query.Query<Result>, second: Query.Query<Result>): Query.Query<Result>",
+                    "within": "Query",
                     "description": [
                         "Matches only values produced by both queries."
-                    ], 
+                    ],
                     "parameters": [
                         {
-                            "name": "first", 
+                            "name": "first",
                             "description": "The first query"
                         },
                         {
-                            "name": "second", 
+                            "name": "second",
                             "description": "The second query"
                         }
                     ]
                 },
                 {
-                    "kind": "function", 
-                    "returns": "The piped child query", 
-                    "name": "compose.pipe", 
-                    "source_path": "types/kern/query/compose/init.luau", 
-                    "signature": "function compose.pipe<Parent, Child>(parent: Query.Query<Parent>, child: Query.Query<Child>): Query.Query<Child>", 
-                    "within": "Query", 
+                    "kind": "function",
+                    "returns": "The piped child query",
+                    "name": "compose.pipe",
+                    "source_path": "types/kern/query/compose/init.luau",
+                    "signature": "function compose.pipe<Parent, Child>(parent: Query.Query<Parent>, child: Query.Query<Child>): Query.Query<Child>",
+                    "within": "Query",
                     "description": [
                         "Evaluates a child query after the parent query has matched."
-                    ], 
+                    ],
                     "parameters": [
                         {
-                            "name": "parent", 
+                            "name": "parent",
                             "description": "The outer query"
                         },
                         {
-                            "name": "child", 
+                            "name": "child",
                             "description": "The query evaluated after the parent"
                         }
                     ]
                 },
                 {
-                    "kind": "function", 
-                    "returns": "The combined query", 
-                    "name": "compose.union", 
-                    "source_path": "types/kern/query/compose/init.luau", 
-                    "signature": "function compose.union<Result>(first: Query.Query<Result>, second: Query.Query<Result>): Query.Query<Result>", 
-                    "within": "Query", 
+                    "kind": "function",
+                    "returns": "The combined query",
+                    "name": "compose.union",
+                    "source_path": "types/kern/query/compose/init.luau",
+                    "signature": "function compose.union<Result>(first: Query.Query<Result>, second: Query.Query<Result>): Query.Query<Result>",
+                    "within": "Query",
                     "description": [
                         "Matches values produced by either query, without duplicates."
-                    ], 
+                    ],
                     "parameters": [
                         {
-                            "name": "first", 
+                            "name": "first",
                             "description": "The first query"
                         },
                         {
-                            "name": "second", 
+                            "name": "second",
                             "description": "The second query"
                         }
                     ]
                 },
                 {
-                    "kind": "value", 
-                    "name": "query.filters", 
-                    "source_path": "types/kern/query/init.luau", 
-                    "signature": "query.filters = nil :: {", 
-                    "within": "Query", 
+                    "kind": "value",
+                    "name": "query.filters",
+                    "source_path": "types/kern/query/init.luau",
+                    "signature": "query.filters = nil :: {",
+                    "within": "Query",
                     "description": [
                         "Reusable predicates for narrowing query results.",
                         "",
                         "Top-level filters compose predicates and compare selected values. Specialized",
                         "`string`, `number`, `array`, and `boolean` groups provide common predicates",
                         "without requiring a new callback for each query."
-                    ], 
+                    ],
                     "parameters": []
                 },
                 {
-                    "kind": "function", 
-                    "returns": "A reusable query", 
-                    "name": "query.from_evaluator", 
-                    "source_path": "types/kern/query/init.luau", 
-                    "signature": "function query.from_evaluator<Result>(evaluator: (root: Types.SyntaxRoot) -> { Result }): Types.Query<Result>", 
-                    "within": "Query", 
+                    "kind": "function",
+                    "returns": "A reusable query",
+                    "name": "query.from_evaluator",
+                    "source_path": "types/kern/query/init.luau",
+                    "signature": "function query.from_evaluator<Result>(evaluator: (root: Types.SyntaxRoot) -> { Result }): Types.Query<Result>",
+                    "within": "Query",
                     "description": [
                         "Creates a query backed by a custom evaluator."
-                    ], 
+                    ],
                     "parameters": [
                         {
-                            "name": "evaluator", 
+                            "name": "evaluator",
                             "description": "Produces results from a syntax root"
                         }
                     ]
                 },
                 {
-                    "kind": "value", 
-                    "name": "query.match", 
-                    "source_path": "types/kern/query/init.luau", 
-                    "signature": "query.match = nil :: {", 
-                    "within": "Query", 
+                    "kind": "value",
+                    "name": "query.match",
+                    "source_path": "types/kern/query/init.luau",
+                    "signature": "query.match = nil :: {",
+                    "within": "Query",
                     "description": [
                         "Syntax-node matchers used to construct queries. Use `where` to add a custom",
                         "predicate to any existing matcher."
-                    ], 
+                    ],
                     "parameters": []
                 },
                 {
-                    "kind": "function", 
-                    "returns": "A reusable query", 
-                    "name": "query.new", 
-                    "source_path": "types/kern/query/init.luau", 
-                    "signature": "function query.new<Result>(matchers: { Types.Matcher }, normalize: Types.Normalizer<Result>): Types.Query<Result>", 
-                    "within": "Query", 
+                    "kind": "function",
+                    "returns": "A reusable query",
+                    "name": "query.new",
+                    "source_path": "types/kern/query/init.luau",
+                    "signature": "function query.new<Result>(matchers: { Types.Matcher }, normalize: Types.Normalizer<Result>): Types.Query<Result>",
+                    "within": "Query",
                     "description": [
                         "Creates a query from matchers and a normalizer."
-                    ], 
+                    ],
                     "parameters": [
                         {
-                            "name": "matchers", 
+                            "name": "matchers",
                             "description": "Predicates that select syntax nodes"
                         },
                         {
-                            "name": "normalize", 
+                            "name": "normalize",
                             "description": "Converts a matching node into a result"
                         }
                     ]
@@ -1139,136 +1093,130 @@
             ]
         },
         {
-            "id": "core-and-cli", 
-            "description": "CLI helpers and the result, graph, and error primitives behind Kern.", 
-            "name": "Core and CLI", 
+            "id": "core-and-cli",
+            "description": "CLI helpers and the result, graph, and error primitives behind kern.",
+            "name": "Core and CLI",
             "entries": [
                 {
-                    "kind": "type", 
-                    "name": "Err", 
-                    "source_path": "types/kern/core/result/init.luau", 
-                    "signature": "export type Err<Failure> = { ok: false, error: Failure }", 
-                    "within": "Result", 
-                    "description": [
-                        "A failed operation result."
-                    ], 
+                    "kind": "type",
+                    "name": "Err",
+                    "source_path": "types/kern/core/result/init.luau",
+                    "signature": "export type Err<Failure> = { ok: false, error: Failure }",
+                    "within": "Result",
+                    "description": ["A failed operation result."],
                     "parameters": []
                 },
                 {
-                    "kind": "type", 
-                    "name": "Ok", 
-                    "source_path": "types/kern/core/result/init.luau", 
-                    "signature": "export type Ok<Value> = { ok: true, value: Value }", 
-                    "within": "Result", 
-                    "description": [
-                        "A successful operation result."
-                    ], 
+                    "kind": "type",
+                    "name": "Ok",
+                    "source_path": "types/kern/core/result/init.luau",
+                    "signature": "export type Ok<Value> = { ok: true, value: Value }",
+                    "within": "Result",
+                    "description": ["A successful operation result."],
                     "parameters": []
                 },
                 {
-                    "kind": "type", 
-                    "name": "ParseResult", 
-                    "source_path": "types/kern/cli.luau", 
-                    "signature": "export type ParseResult = { ok: true, value: Arguments } | { ok: false, error: string }", 
-                    "within": "CLI", 
+                    "kind": "type",
+                    "name": "ParseResult",
+                    "source_path": "types/kern/cli.luau",
+                    "signature": "export type ParseResult = { ok: true, value: Arguments } | { ok: false, error: string }",
+                    "within": "CLI",
                     "description": [
                         "The result of parsing command-line arguments."
-                    ], 
+                    ],
                     "parameters": []
                 },
                 {
-                    "kind": "type", 
-                    "name": "Result", 
-                    "source_path": "types/kern/core/result/init.luau", 
-                    "signature": "export type Result<Value, Failure> = Ok<Value> | Err<Failure>", 
-                    "within": "Result", 
+                    "kind": "type",
+                    "name": "Result",
+                    "source_path": "types/kern/core/result/init.luau",
+                    "signature": "export type Result<Value, Failure> = Ok<Value> | Err<Failure>",
+                    "within": "Result",
                     "description": [
                         "A result that must be narrowed through its `ok` field."
-                    ], 
+                    ],
                     "parameters": []
                 },
                 {
-                    "kind": "function", 
-                    "returns": "Its process exit code", 
-                    "name": "cli.exit_code", 
-                    "source_path": "types/kern/cli.luau", 
-                    "signature": "function cli.exit_code(value: RunResult): number", 
-                    "within": "CLI", 
+                    "kind": "function",
+                    "returns": "Its process exit code",
+                    "name": "cli.exit_code",
+                    "source_path": "types/kern/cli.luau",
+                    "signature": "function cli.exit_code(value: RunResult): number",
+                    "within": "CLI",
                     "description": [
                         "Returns the process exit code for a command result."
-                    ], 
+                    ],
                     "parameters": [
                         {
-                            "name": "value", 
+                            "name": "value",
                             "description": "The command result"
                         }
                     ]
                 },
                 {
-                    "kind": "function", 
-                    "returns": "The parsed arguments or a validation error", 
-                    "name": "cli.parse", 
-                    "source_path": "types/kern/cli.luau", 
-                    "signature": "function cli.parse(values: { string }): ParseResult", 
-                    "within": "CLI", 
+                    "kind": "function",
+                    "returns": "The parsed arguments or a validation error",
+                    "name": "cli.parse",
+                    "source_path": "types/kern/cli.luau",
+                    "signature": "function cli.parse(values: { string }): ParseResult",
+                    "within": "CLI",
                     "description": [
-                        "Parses Kern command arguments without running a project."
-                    ], 
+                        "Parses kern command arguments without running a project."
+                    ],
                     "parameters": [
                         {
-                            "name": "values", 
+                            "name": "values",
                             "description": "Command-line argument values"
                         }
                     ]
                 },
                 {
-                    "kind": "function", 
-                    "returns": "Human-readable terminal output", 
-                    "name": "cli.render", 
-                    "source_path": "types/kern/cli.luau", 
-                    "signature": "function cli.render(value: RunResult): string", 
-                    "within": "CLI", 
+                    "kind": "function",
+                    "returns": "Human-readable terminal output",
+                    "name": "cli.render",
+                    "source_path": "types/kern/cli.luau",
+                    "signature": "function cli.render(value: RunResult): string",
+                    "within": "CLI",
                     "description": [
                         "Formats a command result for terminal output."
-                    ], 
+                    ],
                     "parameters": [
                         {
-                            "name": "value", 
+                            "name": "value",
                             "description": "The command result to render"
                         }
                     ]
                 },
                 {
-                    "kind": "function", 
-                    "returns": "The command result and process exit code", 
-                    "name": "cli.run", 
-                    "source_path": "types/kern/cli.luau", 
-                    "signature": "function cli.run(project: Project.Project, values: Arguments): RunResult", 
-                    "within": "CLI", 
+                    "kind": "function",
+                    "returns": "The command result and process exit code",
+                    "name": "cli.run",
+                    "source_path": "types/kern/cli.luau",
+                    "signature": "function cli.run(project: Project.Project, values: Arguments): RunResult",
+                    "within": "CLI",
                     "description": [
-                        "Runs a parsed command against a Kern project."
-                    ], 
+                        "Runs a parsed command against a kern project."
+                    ],
                     "parameters": [
                         {
-                            "name": "project", 
+                            "name": "project",
                             "description": "The project to operate on"
                         },
                         {
-                            "name": "values", 
+                            "name": "values",
                             "description": "Parsed command arguments"
                         }
                     ]
                 },
                 {
-                    "kind": "function", 
-                    "returns": "Command-line usage text", 
-                    "name": "cli.usage", 
-                    "source_path": "types/kern/cli.luau", 
-                    "signature": "function cli.usage(): string", 
-                    "within": "CLI", 
-                    "description": [
-                        "Returns command-line usage text."
-                    ], 
+                    "kind": "function",
+                    "returns": "Command-line usage text",
+                    "name": "cli.usage",
+                    "source_path": "types/kern/cli.luau",
+                    "signature": "function cli.usage(): string",
+                    "within": "CLI",
+                    "description": ["Returns command-line usage text."],
                     "parameters": []
                 }
             ]

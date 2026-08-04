@@ -5,10 +5,10 @@ const json = require("@std/json")
 const path = require("@std/path")
 
 const sections = {
-	{ id = "authoring", name = "Authoring", description = "Create components, rules, transforms, and scoped tooling.", within = { Kern = true, Component = true, Lint = true, Transform = true, Scope = true } },
+	{ id = "authoring", name = "Authoring", description = "Create components, rules, transforms, and scoped tooling.", within = { kern = true, Component = true, Lint = true, Transform = true, Scope = true } },
 	{ id = "projects-and-output", name = "Projects and output", description = "Configure projects, module resolution, filesystems, and build output.", within = { Project = true, Output = true, Require = true, Filesystem = true } },
 	{ id = "syntax-and-queries", name = "Syntax and queries", description = "Parse Luau, create source nodes, and inspect syntax with queries.", within = { Syntax = true, Query = true, Queries = true, Calls = true } },
-	{ id = "core-and-cli", name = "Core and CLI", description = "CLI helpers and the result, graph, and error primitives behind Kern.", within = { CLI = true, Errors = true, Graph = true, Result = true } },
+	{ id = "core-and-cli", name = "Core and CLI", description = "CLI helpers and the result, graph, and error primitives behind kern.", within = { CLI = true, Errors = true, Graph = true, Result = true } },
 }
 
 const function trim(value)

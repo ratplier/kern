@@ -39,7 +39,7 @@ type RunResult = {
 	exit_code: number,
 }
 
-type KernCli = {
+type kernCli = {
 	parse: (values: { string }) -> ParseResult,
 	run: (project: Project, values: ParseArguments) -> RunResult,
 	render: (value: RunResult) -> string,
@@ -64,8 +64,8 @@ return kern.project({
 ]]
 const ENTRY_TEMPLATE = [[--!strict
 
--- Kern processes this file during `kern check` and writes it to build/ during `kern build`.
-print("Hello from Kern")
+-- kern processes this file during `kern check` and writes it to build/ during `kern build`.
+print("Hello from kern")
 ]]
 
 const function command_arguments(values: { string }): { string }
@@ -236,14 +236,14 @@ const function init_project(runtime_instance: runtime_module.Runtime, values: { 
 	return 0
 end
 
-const function load_cli(runtime_instance: runtime_module.Runtime): KernCli
+const function load_cli(runtime_instance: runtime_module.Runtime): kernCli
 	const value = runtime_instance:require_public("@cli")
 	if typeof(value) ~= "table" or typeof(value.parse) ~= "function" then
 		error("kern: embedded @cli module is incomplete", 0)
 	end
 
 	-- TODO(luau): embedded module values are dynamic by design.
-	return value :: KernCli
+	return value :: kernCli
 end
 
 const function main(values: { string }): number

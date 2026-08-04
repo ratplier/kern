@@ -4,7 +4,7 @@
 /dist/
 /sandbox/out/
 
-# Local Kern and Lute state
+# Local kern and Lute state
 /.kern/
 /.lute/
 /.luaurc

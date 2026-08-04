@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Transforms
 
-Transforms work on parsed syntax and collect edits before Kern applies them.
+Transforms work on parsed syntax and collect edits before kern applies them.
 Use queries to find nodes, quote source to create replacement nodes, and use
 `ensure_import` to add requires without duplicating them.
 

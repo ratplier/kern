@@ -4,7 +4,7 @@ sidebar_position: 5
 
 # CLI workflows
 
-Kern discovers `default.kern.luau` from the current directory upward. Use
+kern discovers `default.kern.luau` from the current directory upward. Use
 `--project path/to/default.kern.luau` to select one explicitly.
 
 ```text

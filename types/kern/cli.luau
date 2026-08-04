@@ -5,7 +5,7 @@ const Project = require("@kern/project")
 --[=[
 	@within CLI
 
-	Arguments accepted by Kern's project command runner.
+	Arguments accepted by kern's project command runner.
 ]=]
 export type Arguments = {
 	command: "lint" | "transform" | "build" | "check",
@@ -37,7 +37,7 @@ local cli = {}
 --[=[
 	@within CLI
 
-	Parses Kern command arguments without running a project.
+	Parses kern command arguments without running a project.
 
 	@param values Command-line argument values
 	@return The parsed arguments or a validation error
@@ -49,7 +49,7 @@ end
 --[=[
 	@within CLI
 
-	Runs a parsed command against a Kern project.
+	Runs a parsed command against a kern project.
 
 	@param project The project to operate on
 	@param values Parsed command arguments

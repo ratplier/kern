@@ -1,7 +1,7 @@
 const kern = require("@kern")
 
 const unfinished_work = kern.lint("unfinished_work", {
-	description = "Keeps TODO and FIXME comments visible across Kern's own source tree",
+	description = "Keeps TODO and FIXME comments visible across kern's own source tree",
 	severity = "warn",
 	run = function(tree, context)
 		for comment in kern.comments.todo:visit(tree) do

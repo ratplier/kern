@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # CI and releases
 
-Kern's automation deliberately uses the same commands available to a project
+kern's automation deliberately uses the same commands available to a project
 author. This keeps the release gate representative: a binary is compiled, then
 that binary runs `check` and `build` against the repository's sandbox project.
 
@@ -18,7 +18,7 @@ to `main`, and manual dispatches. It:
 - type-checks the CLI, public typedef entry point, and test runner;
 - runs the in-memory unit and integration suite;
 - compiles `bin/build`; and
-- uses that compiled binary to check and collect Kern's generated artifacts; and
+- uses that compiled binary to check and collect kern's generated artifacts; and
 - uses that compiled binary to check and build `sandbox/default.kern.luau`.
 
 Run the same gate locally before opening a pull request:
@@ -59,7 +59,7 @@ which is useful for testing a release build before creating a tag.
 
 ## Rokit consumers
 
-Rokit resolves Kern directly from its GitHub releases. Consumers add this to
+Rokit resolves kern directly from its GitHub releases. Consumers add this to
 their own `rokit.toml`, replacing the version with the release they need:
 
 ```toml
