@@ -1,0 +1,22 @@
+# Compiled executables and generated project output
+/bin/
+/generated/
+/dist/
+/sandbox/out/
+
+# Local Kern and Lute state
+/.kern/
+/.lute/
+/.luaurc
+
+# Editor and operating-system files
+/.zed/
+/.vscode/
+.DS_Store
+
+# Temporary and coverage files
+*.log
+*.tmp
+*.bak
+*.luau~
+/coverage/
