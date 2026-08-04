@@ -71,7 +71,7 @@ jobs:
                   Copy-Item "bin/${{ matrix.binary }}" "release/${{ matrix.executable }}"
                   Compress-Archive -Path "release/${{ matrix.executable }}" -DestinationPath "${{ matrix.asset }}" -Force
             - name: Upload release artifact
-              uses: actions/upload-artifact@v4
+              uses: actions/upload-artifact@v7
               with:
                   name: ${{ matrix.asset }}
                   path: ${{ matrix.asset }}
