@@ -35,12 +35,13 @@ project's `rokit.toml`:
 
 ```toml
 [tools]
-kern = "ratplier/kern@0.1.0"
+kern = "ratplier/kern@0.1.1"
 ```
 
 Run `rokit install`, then use `kern` from that project's managed toolchain.
-Each release contains native Linux x86_64, macOS arm64, and Windows x86_64
-binaries, named for Rokit's platform selection.
+Each release contains a platform-named ZIP archive with the `kern` executable
+inside. Rokit selects and extracts the native Linux x86_64, macOS arm64, or
+Windows x86_64 archive automatically.
 
 ## Versioning
 

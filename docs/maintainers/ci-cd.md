@@ -44,10 +44,10 @@ build artifacts to a commit.
 
 Pushing a tag named `v<version>` starts the [`Release` workflow](../../.github/workflows/release.yml).
 It builds native binaries on Linux x86_64, macOS arm64, and Windows x86_64,
-uploads each as a workflow artifact, and creates a GitHub release with those
-three files attached. The release job installs the pinned Rokit toolchain before
-it validates the release tag, so its version check does not depend on a runner's
-preinstalled Lute.
+packages each as a ZIP archive containing `kern` (or `kern.exe`), and creates a
+GitHub release with those three archives attached. The release job installs the
+pinned Rokit toolchain before it validates the release tag, so its version check
+does not depend on a runner's preinstalled Lute.
 
 `VERSION` is the single source of truth for the CLI and typedef bundles. Prepare
 a release with `lute run scripts/version.luau prepare 0.2.0`; this updates
@@ -64,12 +64,13 @@ their own `rokit.toml`, replacing the version with the release they need:
 
 ```toml
 [tools]
-kern = "ratplier/kern@0.1.0"
+kern = "ratplier/kern@0.1.1"
 ```
 
-They then run `rokit install`. Keep the uploaded asset names aligned with the
-release matrix (`kern-linux-x86_64`, `kern-darwin-arm64`, and
-`kern-windows-x86_64.exe`); those names let Rokit select the matching binary.
+They then run `rokit install`. Keep the uploaded archive names aligned with the
+release matrix (`kern-linux-x86_64.zip`, `kern-darwin-arm64.zip`, and
+`kern-windows-x86_64.zip`); those names let Rokit select and extract the
+matching binary.
 
 ## First deployment
 
@@ -78,9 +79,9 @@ Actions with permission to create releases. Prepare the version, commit it, and
 push the matching tag:
 
 ```text
-lute run scripts/version.luau prepare 0.1.0
-git tag v0.1.0
-git push origin v0.1.0
+lute run scripts/version.luau prepare 0.1.1
+git tag v0.1.1
+git push origin v0.1.1
 ```
 
 The tag triggers the deployment. Before the first tag, use **Run workflow** on

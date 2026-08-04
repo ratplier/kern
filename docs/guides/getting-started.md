@@ -10,11 +10,11 @@ After kern has a GitHub release, add it to the project's `rokit.toml`:
 
 ```toml
 [tools]
-kern = "ratplier/kern@0.1.0"
+kern = "ratplier/kern@0.1.1"
 ```
 
-Run `rokit install`. Rokit selects the released binary for the active platform,
-so `kern` is ready to use in the repository.
+Run `rokit install`. Rokit selects and extracts the released ZIP archive for the
+active platform, so `kern` is ready to use in the repository.
 
 ## Install the toolchain
 
