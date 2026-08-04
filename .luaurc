@@ -1,0 +1,6 @@
+{
+  "aliases": {
+    "kern": "./src/kern",
+    "cli": "./src/cli"
+  }
+}

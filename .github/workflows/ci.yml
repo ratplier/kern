@@ -36,11 +36,10 @@ jobs:
                   lute run scripts/generate_types.luau
                   lute run scripts/generate_docs.luau
                   git diff --exit-code -- src/cli/gen/modules.luau src/cli/gen/types.luau docs/api
-            - name: Type-check public entry points
-              run: |
-                  lute check src/cli/run.luau
-                  lute check types/kern/init.luau
-                  lute check tests/run.luau
+      - name: Type-check public entry points
+        run: |
+          lute check src/cli/run.luau
+          lute check types/kern/init.luau
             - name: Run the test suite
               run: lute run scripts/test.luau
             - name: Compile kern

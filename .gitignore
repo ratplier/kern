@@ -7,7 +7,6 @@
 # Local kern and Lute state
 /.kern/
 /.lute/
-/.luaurc
 
 # Editor and operating-system files
 /.zed/
