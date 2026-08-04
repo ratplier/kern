@@ -88,4 +88,3 @@ export type DiagnosticPolicy = { minimum_failure_severity: Lint.Severity }
 ```
 
 Controls which diagnostics make a project operation fail.
-

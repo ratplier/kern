@@ -134,7 +134,8 @@ const function generate()
 		table.insert(output_sections, { id = section.id, name = section.name, description = section.description, entries = entries })
 	end
 	if not file_system.exists("docs/api") then file_system.createDirectory("docs/api", { makeParents = true }) end
-	file_system.writeStringToFile("docs/api/api.json", json.serialize({ schema_version = 1, sections = output_sections }, true))
+	const source = json.serialize({ schema_version = 1, sections = output_sections }, true):gsub("[ \t]+\n", "\n")
+	file_system.writeStringToFile("docs/api/api.json", source)
 	print("kern: generated docs/api/api.json")
 end
 

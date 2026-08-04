@@ -67,7 +67,9 @@
                     "source_path": "types/kern/transform/init.luau",
                     "signature": "export type TransformPhase = \"syntax\" | \"module\" | \"finalize\"",
                     "within": "Transform",
-                    "description": ["The stage at which a transform runs."],
+                    "description": [
+                        "The stage at which a transform runs."
+                    ],
                     "parameters": []
                 },
                 {
@@ -97,7 +99,9 @@
                     "source_path": "types/kern/init.luau",
                     "signature": "kern.calls = Calls",
                     "within": "kern",
-                    "description": ["Queries for function and method calls."],
+                    "description": [
+                        "Queries for function and method calls."
+                    ],
                     "parameters": []
                 },
                 {
@@ -106,7 +110,9 @@
                     "source_path": "types/kern/init.luau",
                     "signature": "kern.comments = Catalog.comments",
                     "within": "kern",
-                    "description": ["Queries for source comments."],
+                    "description": [
+                        "Queries for source comments."
+                    ],
                     "parameters": []
                 },
                 {
@@ -158,7 +164,9 @@
                     "source_path": "types/kern/init.luau",
                     "signature": "kern.filters = QueryModule.filters",
                     "within": "kern",
-                    "description": ["Predicates for narrowing query results."],
+                    "description": [
+                        "Predicates for narrowing query results."
+                    ],
                     "parameters": []
                 },
                 {
@@ -210,7 +218,9 @@
                     "source_path": "types/kern/init.luau",
                     "signature": "kern.match = QueryModule.match",
                     "within": "kern",
-                    "description": ["Helpers for matching syntax nodes."],
+                    "description": [
+                        "Helpers for matching syntax nodes."
+                    ],
                     "parameters": []
                 },
                 {
@@ -219,7 +229,9 @@
                     "source_path": "types/kern/init.luau",
                     "signature": "kern.modules = Catalog.modules",
                     "within": "kern",
-                    "description": ["Queries for module-related syntax."],
+                    "description": [
+                        "Queries for module-related syntax."
+                    ],
                     "parameters": []
                 },
                 {
@@ -228,7 +240,9 @@
                     "source_path": "types/kern/init.luau",
                     "signature": "kern.operators = Catalog.operators",
                     "within": "kern",
-                    "description": ["Queries for unary and binary operators."],
+                    "description": [
+                        "Queries for unary and binary operators."
+                    ],
                     "parameters": []
                 },
                 {
@@ -249,7 +263,9 @@
                     "source_path": "types/kern/init.luau",
                     "signature": "function kern.parse(source: string, file_path: string?): Syntax.ParseResult",
                     "within": "kern",
-                    "description": ["Parses a complete Luau source file."],
+                    "description": [
+                        "Parses a complete Luau source file."
+                    ],
                     "parameters": [
                         {
                             "name": "source",
@@ -268,7 +284,9 @@
                     "source_path": "types/kern/init.luau",
                     "signature": "function kern.parse_block(source: string): Syntax.ParseResult",
                     "within": "kern",
-                    "description": ["Parses a sequence of Luau statements."],
+                    "description": [
+                        "Parses a sequence of Luau statements."
+                    ],
                     "parameters": [
                         {
                             "name": "source",
@@ -283,7 +301,9 @@
                     "source_path": "types/kern/init.luau",
                     "signature": "function kern.parse_expression(source: string): Syntax.ParseResult",
                     "within": "kern",
-                    "description": ["Parses one Luau expression."],
+                    "description": [
+                        "Parses one Luau expression."
+                    ],
                     "parameters": [
                         {
                             "name": "source",
@@ -427,7 +447,9 @@
                     "source_path": "types/kern/init.luau",
                     "signature": "kern.strings = Catalog.strings",
                     "within": "kern",
-                    "description": ["Queries for string expressions."],
+                    "description": [
+                        "Queries for string expressions."
+                    ],
                     "parameters": []
                 },
                 {
@@ -559,7 +581,9 @@
                     "source_path": "types/kern/lint/init.luau",
                     "signature": "function lint.new(name: string, definition: LintDefinition): LintRule",
                     "within": "Lint",
-                    "description": ["Creates a named lint rule."],
+                    "description": [
+                        "Creates a named lint rule."
+                    ],
                     "parameters": [
                         {
                             "name": "name",
@@ -578,7 +602,9 @@
                     "source_path": "types/kern/scope/init.luau",
                     "signature": "function scope.new(config: ScopeConfig): Scope",
                     "within": "Scope",
-                    "description": ["Creates a comment-directive scope."],
+                    "description": [
+                        "Creates a comment-directive scope."
+                    ],
                     "parameters": [
                         {
                             "name": "config",
@@ -614,7 +640,9 @@
                     "source_path": "types/kern/transform/init.luau",
                     "signature": "function transform.new(name: string, definition: TransformDefinition): TransformRule",
                     "within": "Transform",
-                    "description": ["Creates a named source transform."],
+                    "description": [
+                        "Creates a named source transform."
+                    ],
                     "parameters": [
                         {
                             "name": "name",
@@ -651,7 +679,9 @@
                     "source_path": "types/kern/output/init.luau",
                     "signature": "output.directory = output.new",
                     "within": "Output",
-                    "description": ["Creates a directory output emitter."],
+                    "description": [
+                        "Creates a directory output emitter."
+                    ],
                     "parameters": [
                         {
                             "name": "config",
@@ -666,7 +696,9 @@
                     "source_path": "types/kern/output/init.luau",
                     "signature": "function output.new(config: OutputConfig): OutputEmitter",
                     "within": "Output",
-                    "description": ["Creates a directory output emitter."],
+                    "description": [
+                        "Creates a directory output emitter."
+                    ],
                     "parameters": [
                         {
                             "name": "config",
@@ -698,7 +730,9 @@
                     "source_path": "types/kern/require/init.luau",
                     "signature": "function resolver.new(config: RequireConfig): RequireResolver",
                     "within": "Require",
-                    "description": ["Creates a module resolver."],
+                    "description": [
+                        "Creates a module resolver."
+                    ],
                     "parameters": [
                         {
                             "name": "config",
@@ -758,7 +792,9 @@
                     "source_path": "types/kern/syntax/types/init.luau",
                     "signature": "export type ParseResult = { ok: true, tree: SyntaxTree } | { ok: false, error: ParseError }",
                     "within": "Syntax",
-                    "description": ["The result of parsing Luau source."],
+                    "description": [
+                        "The result of parsing Luau source."
+                    ],
                     "parameters": []
                 },
                 {
@@ -767,7 +803,9 @@
                     "source_path": "types/kern/syntax/types/init.luau",
                     "signature": "export type SourceLocation = { line: number, column: number }",
                     "within": "Syntax",
-                    "description": ["A one-based position in Luau source."],
+                    "description": [
+                        "A one-based position in Luau source."
+                    ],
                     "parameters": []
                 },
                 {
@@ -776,7 +814,9 @@
                     "source_path": "types/kern/syntax/types/init.luau",
                     "signature": "export type Span = { start: number, finish: number }",
                     "within": "Syntax",
-                    "description": ["A half-open byte range in Luau source."],
+                    "description": [
+                        "A half-open byte range in Luau source."
+                    ],
                     "parameters": []
                 },
                 {
@@ -785,7 +825,9 @@
                     "source_path": "types/kern/syntax/types/init.luau",
                     "signature": "export type SyntaxExpression = syntax.AstExpr",
                     "within": "Syntax",
-                    "description": ["Any Luau expression node."],
+                    "description": [
+                        "Any Luau expression node."
+                    ],
                     "parameters": []
                 },
                 {
@@ -794,7 +836,9 @@
                     "source_path": "types/kern/syntax/types/init.luau",
                     "signature": "export type SyntaxNode = syntax.AstNode",
                     "within": "Syntax",
-                    "description": ["Any Luau AST node."],
+                    "description": [
+                        "Any Luau AST node."
+                    ],
                     "parameters": []
                 },
                 {
@@ -836,7 +880,9 @@
                     "source_path": "types/kern/query/builtins/calls/init.luau",
                     "signature": "calls.any = nil :: Query<CallInfo>",
                     "within": "Calls",
-                    "description": ["Matches every function and method call."],
+                    "description": [
+                        "Matches every function and method call."
+                    ],
                     "parameters": []
                 },
                 {
@@ -1103,7 +1149,9 @@
                     "source_path": "types/kern/core/result/init.luau",
                     "signature": "export type Err<Failure> = { ok: false, error: Failure }",
                     "within": "Result",
-                    "description": ["A failed operation result."],
+                    "description": [
+                        "A failed operation result."
+                    ],
                     "parameters": []
                 },
                 {
@@ -1112,7 +1160,9 @@
                     "source_path": "types/kern/core/result/init.luau",
                     "signature": "export type Ok<Value> = { ok: true, value: Value }",
                     "within": "Result",
-                    "description": ["A successful operation result."],
+                    "description": [
+                        "A successful operation result."
+                    ],
                     "parameters": []
                 },
                 {
@@ -1216,7 +1266,9 @@
                     "source_path": "types/kern/cli.luau",
                     "signature": "function cli.usage(): string",
                     "within": "CLI",
-                    "description": ["Returns command-line usage text."],
+                    "description": [
+                        "Returns command-line usage text."
+                    ],
                     "parameters": []
                 }
             ]

@@ -292,4 +292,3 @@ export type TypeInfo = { kind: string, name: string?, is_export: boolean, span: 
 ```
 
 Normalized metadata for a type annotation or declaration.
-

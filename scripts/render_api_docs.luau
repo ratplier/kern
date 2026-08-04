@@ -82,7 +82,8 @@ const function render()
 			table.insert(lines, "")
 			for _, entry in types do append_entry(lines, entry) end
 		end
-		file_system.writeStringToFile(`docs/api/{section.id}.md`, table.concat(lines, "\n") .. "\n")
+		const source = (table.concat(lines, "\n") .. "\n"):gsub("\n+$", "\n")
+		file_system.writeStringToFile(`docs/api/{section.id}.md`, source)
 	end
 	file_system.writeStringToFile("docs/api/index.md", table.concat(index, "\n") .. "\n")
 	print("kern: rendered docs/api")

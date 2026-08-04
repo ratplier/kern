@@ -490,4 +490,3 @@ export type TransformPhase = "syntax" | "module" | "finalize"
 ```
 
 The stage at which a transform runs.
-
