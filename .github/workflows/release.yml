@@ -68,6 +68,10 @@ jobs:
     steps:
       - name: Check out the repository
         uses: actions/checkout@v4
+      - name: Install Rokit
+        uses: CompeyDev/setup-rokit@v0.1.2
+      - name: Install pinned tools
+        run: rokit install --no-trust-check
       - name: Ensure the tag matches Kern's embedded version
         run: lute run scripts/check_release_version.luau ${{ github.ref_name }}
       - name: Download release artifacts
@@ -79,4 +83,4 @@ jobs:
       - name: Create GitHub release
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release create "$GITHUB_REF_NAME" release/* --generate-notes
+        run: gh release create "$GITHUB_REF_NAME" release/* --generate-notes --title "Kern $GITHUB_REF_NAME"

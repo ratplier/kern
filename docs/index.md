@@ -10,7 +10,7 @@ and deterministic output.
 
 ## Start here
 
-- [Getting started](guides/getting-started.md) — install the toolchain and create a project.
+- [Getting started](guides/getting-started.md) — install with Rokit, build from source, and create a project.
 - [Projects and components](guides/projects.md) — compose reusable pipeline behavior.
 - [Transforms](guides/transforms.md) — query, quote, replace, and import safely.
 - [Output and Rojo](guides/output.md) — emit source and assets for a game project.

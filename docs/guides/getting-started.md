@@ -4,6 +4,18 @@ sidebar_position: 1
 
 # Getting started
 
+## Install Kern in a project
+
+After Kern has a GitHub release, add it to the project's `rokit.toml`:
+
+```toml
+[tools]
+kern = "ratplier/kern@0.1.0"
+```
+
+Run `rokit install`. Rokit selects the released binary for the active platform,
+so `kern` is ready to use in the repository.
+
 ## Install the toolchain
 
 Kern uses [Rokit](https://github.com/rojo-rbx/rokit) to provide its pinned
@@ -14,6 +26,8 @@ rokit install
 ```
 
 This makes the pinned `lute` command available for building and running Kern.
+This repository's `rokit.toml` is for contributors; a project using Kern needs
+only the `kern` entry above.
 
 ## Build Kern
 

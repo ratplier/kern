@@ -28,6 +28,20 @@ rokit install
 This installs the pinned `lute` executable used by every script below. Do not
 rely on an arbitrary global Lute version.
 
+## Install Kern with Rokit
+
+Once a tagged release exists under `ratplier/kern`, add Kern to a consumer
+project's `rokit.toml`:
+
+```toml
+[tools]
+kern = "ratplier/kern@0.1.0"
+```
+
+Run `rokit install`, then use `kern` from that project's managed toolchain.
+Each release contains native Linux x86_64, macOS arm64, and Windows x86_64
+binaries, named for Rokit's platform selection.
+
 ## Versioning
 
 [`VERSION`](VERSION) is the single release-version source. To prepare a release
@@ -39,6 +53,8 @@ lute run scripts/version.luau prepare 0.2.0
 
 Review and commit the updated `VERSION`, generated modules, typedef bundle, and
 API overview. Then push the matching `v0.2.0` tag to publish native artifacts.
+The Release workflow installs its pinned toolchain before checking the tag and
+attaching those artifacts to GitHub Releases.
 
 ## Start a project
 
